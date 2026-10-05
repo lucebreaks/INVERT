@@ -44,13 +44,12 @@ radius = 1.733
 
 [node name="Roller" type="Node3D" unique_id=1515756501]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("SPEEDOMETER_LABEL", "wheels")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("wheels")]
 collision_layer = 5
 mass = 400.0
 physics_material_override = SubResource("PhysicsMaterial_yf5fn")
 gravity_scale = 4.0
 script = ExtResource("1_se4n2")
-SPEEDOMETER_LABEL = NodePath("")
 wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
 acceleration = -8000.0
 max_speed = 1000.0
