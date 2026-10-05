@@ -100,6 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.073550224, 0.19613433)
 
 [node name="bodycol" type="CollisionShape3D" parent="body" unique_id=366864248]
 transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0.064834595, 0.312665)
+visible = false
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="wheelcol1" type="CollisionShape3D" parent="body" unique_id=963048325]

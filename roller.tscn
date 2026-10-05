@@ -17,32 +17,22 @@ _data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(0.3, 1), 0.0, 0.0, 0, 0, Vecto
 point_count = 4
 metadata/_snap_enabled = true
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fimd7"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mc8mk"]
 
-[sub_resource type="Sky" id="Sky_hoawj"]
-sky_material = SubResource("ProceduralSkyMaterial_fimd7")
+[sub_resource type="Sky" id="Sky_5x7u6"]
+sky_material = SubResource("ProceduralSkyMaterial_mc8mk")
 
-[sub_resource type="Environment" id="Environment_dpkyd"]
+[sub_resource type="Environment" id="Environment_my50q"]
 background_mode = 2
-sky = SubResource("Sky_hoawj")
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-reflected_light_source = 2
-ssr_fade_in = 1.4270511
-ssr_fade_out = 1.8660657
-ssr_depth_tolerance = 84.71
-ssao_radius = 7.6
-ssao_intensity = 8.89
+sky = SubResource("Sky_5x7u6")
+ssr_enabled = true
+ssr_fade_in = 0.21213318
+ssr_fade_out = 1.9999827
+ssr_depth_tolerance = 0.01
+ssao_enabled = true
+ssao_radius = 5.91
+ssao_intensity = 2.98
 ssao_detail = 5.0
-ssao_horizon = 0.0
-ssao_ao_channel_affect = 0.07
-ssil_radius = 8.51
-ssil_intensity = 5.21
-sdfgi_read_sky_light = false
-glow_enabled = true
-fog_light_color = Color(0.14688179, 0.23379356, 0.49264753, 1)
-fog_light_energy = 0.2
-fog_sun_scatter = 0.35
 
 [sub_resource type="LabelSettings" id="LabelSettings_x7clb"]
 font = ExtResource("4_dpkyd")
@@ -57,7 +47,7 @@ font = ExtResource("4_dpkyd")
 font_size = 130
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(8.486588, 2.149292, 8.956543)
+size = Vector3(8.632829, 2.149292, 9.714813)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
 height = 1.2
@@ -100,7 +90,7 @@ max_speed = 200.0
 
 [node name="Camera" type="Camera3D" parent="RigidBody3D/SpringArm3D" unique_id=849635695 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
-environment = SubResource("Environment_dpkyd")
+environment = SubResource("Environment_my50q")
 doppler_tracking = 2
 fov = 90.0
 near = 0.036
@@ -147,7 +137,7 @@ text = "345"
 label_settings = SubResource("LabelSettings_6ck66")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1701185897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007545471, 0.06097412, -0.19116211)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4836273e-05, 0.06097412, -0.20991516)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="VOXTEKROLLERBODY" parent="RigidBody3D" unique_id=2042977301 instance=ExtResource("2_niu1m")]
