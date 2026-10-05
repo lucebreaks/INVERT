@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cr3ayyiipsm4y"
+path="res://.godot/imported/gs franc - Cure for the itch.ogg-37f22dbfa3137f34ad80eef7951abe03.oggvorbisstr"
+
+[deps]
+
+source_file="res://ost/gs franc - Cure for the itch.ogg"
+dest_files=["res://.godot/imported/gs franc - Cure for the itch.ogg-37f22dbfa3137f34ad80eef7951abe03.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
