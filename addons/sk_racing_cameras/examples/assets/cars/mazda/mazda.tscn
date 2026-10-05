@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://cr16tdrir7ajb"]
+
+[ext_resource type="PackedScene" uid="uid://baaeis7lv5fh8" path="res://addons/sk_racing_cameras/examples/assets/cars/mazda/mazda_no_cams.tscn" id="1_56sba"]
+[ext_resource type="ArrayMesh" uid="uid://b6jwnsb86qvdl" path="res://car/R-2000bodyfix.obj" id="2_wwn4g"]
+[ext_resource type="Texture2D" uid="uid://bghnbgidvvkcv" path="res://car/R-2000.png" id="3_wwn4g"]
+[ext_resource type="PackedScene" uid="uid://bp1wqqekbahuj" path="res://gfx/bodyfix.fbx" id="4_kbgbm"]
+[ext_resource type="Script" uid="uid://bskeg0hryaja3" path="res://scripts/camera_pivot.gd" id="4_wwn4g"]
+[ext_resource type="PackedScene" uid="uid://3iliyhvs3wm" path="res://Sulay/sulbody.fbx" id="5_efk2k"]
+[ext_resource type="PackedScene" uid="uid://mcjeum0enrob" path="res://Sulay/sulwheel.fbx" id="7_u74ry"]
+[ext_resource type="PackedScene" uid="uid://bcxxurv71tl0k" path="res://gfx/wheelfix.fbx" id="8_13qvf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efk2k"]
+albedo_texture = ExtResource("3_wwn4g")
+
+[sub_resource type="Environment" id="Environment_wwn4g"]
+ambient_light_color = Color(0.252028, 0.252028, 0.252028, 1)
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_wwn4g"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 20.71
+dof_blur_far_transition = 21.1
+
+[sub_resource type="Compositor" id="Compositor_wwn4g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 1.4735801
+
+[node name="mazda" unique_id=1875429498 instance=ExtResource("1_56sba")]
+
+[node name="R-2000Body" type="MeshInstance3D" parent="." index="0" unique_id=2134425638]
+transform = Transform3D(-0.895, 0, -1.35141e-07, 0, 0.895, 0, 1.35141e-07, 0, -0.895, 0, -0.0836804, 0.188)
+layers = 0
+mesh = ExtResource("2_wwn4g")
+skeleton = NodePath("../wheels/fl_wheel")
+surface_material_override/0 = SubResource("StandardMaterial3D_efk2k")
+
+[node name="bodyfix" parent="R-2000Body" index="0" unique_id=1425099662 instance=ExtResource("4_kbgbm")]
+transform = Transform3D(0.263, 0, -1.6719621e-08, 0, 0.263, 0, 1.6719621e-08, 0, 0.263, -4.570407e-08, 0.14037602, 0.30268496)
+
+[node name="Axis" type="Node3D" parent="R-2000Body" index="1" unique_id=1113266640]
+script = ExtResource("4_wwn4g")
+
+[node name="Camera" type="Camera3D" parent="R-2000Body/Axis" index="0" unique_id=1805877578]
+transform = Transform3D(-1.11732, -2.71335e-08, 1.66514e-07, -5.95427e-15, 1.10277, 0.179697, -1.6871e-07, 0.179697, -1.10277, 5.73128e-07, 1.23966, -3.79566)
+environment = SubResource("Environment_wwn4g")
+attributes = SubResource("CameraAttributesPractical_wwn4g")
+compositor = SubResource("Compositor_wwn4g")
+
+[node name="sulbody" parent="R-2000Body" index="2" unique_id=1965428507 instance=ExtResource("5_efk2k")]
+transform = Transform3D(0.263, 0, -1.6719627e-08, 0, 0.263, 0, 1.6719627e-08, 0, 0.263, -4.570407e-08, -0.23183244, 0.30268496)
+visible = false
+
+[node name="mesh" parent="." index="1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.99647, 0)
+visible = false
+
+[node name="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(0.535, 0, 0, 0, 0.535, 0, 0, 0, 0.535, 0, -0.19366026, 0)
+
+[node name="wheels" parent="." index="3"]
+transform = Transform3D(1.24, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="fl_wheel" parent="wheels" index="0"]
+transform = Transform3D(0.93, 0, 0, 0, 0.93, 0, 0, 0, 0.93, -0.7292958, 0.34865692, -0.79853034)
+
+[node name="wheelfix" parent="wheels/fl_wheel" index="0" unique_id=725661253 instance=ExtResource("8_13qvf")]
+transform = Transform3D(0.23, 0, 3.8201216e-15, 0, 0.22999997, 0, -3.8201224e-15, 0, 0.22999997, 0.048861086, -0.361, 0)
+
+[node name="sulwheel" parent="wheels/fl_wheel" index="1" unique_id=163380764 instance=ExtResource("7_u74ry")]
+transform = Transform3D(-0.24, 0, -3.623899e-08, 0, 0.24, 0, 3.623899e-08, 0, -0.24, 0, -0.36099997, 0)
+visible = false
+
+[node name="mazda_wheel" parent="wheels/fl_wheel" index="2"]
+visible = false
+
+[node name="fr_wheel" parent="wheels" index="1"]
+transform = Transform3D(0.93, 0, 0, 0, 0.93, 0, 0, 0, 0.93, 0.729, 0.349, -0.78499913)
+
+[node name="wheelfix" parent="wheels/fr_wheel" index="0" unique_id=2031856187 instance=ExtResource("8_13qvf")]
+transform = Transform3D(-0.23, 0, -3.472903e-08, 0, 0.22999997, 0, 3.4729034e-08, 0, -0.22999997, -0.049, -0.361, 0)
+
+[node name="sulwheel" parent="wheels/fr_wheel" index="1" unique_id=433887438 instance=ExtResource("7_u74ry")]
+transform = Transform3D(0.23999998, 0, 0, 0, 0.23999998, 0, 0, 0, 0.23999998, 0, -0.36099997, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wheels/fr_wheel/sulwheel" index="1" unique_id=92635504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43729234, 0, 0)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="mazda_wheel" parent="wheels/fr_wheel" index="2"]
+visible = false
+
+[node name="rl_wheel" parent="wheels" index="2"]
+transform = Transform3D(0.93, 0, 0, 0, 0.93, 0, 0, 0, 0.93, -0.72975874, 0.34908992, 0.6572845)
+is_traction = true
+
+[node name="wheelfix" parent="wheels/rl_wheel" index="0" unique_id=436330896 instance=ExtResource("8_13qvf")]
+transform = Transform3D(0.23, 0, 3.820121e-15, 0, 0.22999997, 0, -3.8201216e-15, 0, 0.22999997, 0.048861086, -0.361, 0)
+
+[node name="sulwheel" parent="wheels/rl_wheel" index="1" unique_id=1771168906 instance=ExtResource("7_u74ry")]
+transform = Transform3D(-0.23999998, 0, -3.623899e-08, 0, 0.23999998, 0, 3.623899e-08, 0, -0.23999998, 0, -0.36099997, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wheels/rl_wheel/sulwheel" index="1" unique_id=239097175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43729234, 0, 0)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="mazda_wheel" parent="wheels/rl_wheel" index="2"]
+visible = false
+
+[node name="rr_wheel" parent="wheels" index="3"]
+transform = Transform3D(0.93, 0, 0, 0, 0.93, 0, 0, 0, 0.93, 0.729, 0.349, 0.657)
+is_traction = true
+
+[node name="wheelfix" parent="wheels/rr_wheel" index="0" unique_id=2087992112 instance=ExtResource("8_13qvf")]
+transform = Transform3D(-0.23, 0, -3.472903e-08, 0, 0.22999997, 0, 3.4729034e-08, 0, -0.22999997, -0.049000025, -0.361, 0)
+
+[node name="sulwheel" parent="wheels/rr_wheel" index="1" unique_id=1283803048 instance=ExtResource("7_u74ry")]
+transform = Transform3D(0.23999995, 0, 0, 0, 0.23999996, 0, 0, 0, 0.23999996, 0, -0.36099997, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wheels/rr_wheel/sulwheel" index="1" unique_id=217074014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43729234, 0, 0)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="mazda_wheel" parent="wheels/rr_wheel" index="2"]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="4" unique_id=610721674]
+transform = Transform3D(0.871756, 0, 0, 0, 1, 0, 0, 0, 1, 0.334, 0.008, -1.436)
+light_energy = 2.616
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="5" unique_id=968195285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33434904, 0.008474126, -1.4363261)
+light_energy = 2.616

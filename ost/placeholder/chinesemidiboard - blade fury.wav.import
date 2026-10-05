@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0hh3yv5xbyte"
+path="res://.godot/imported/chinesemidiboard - blade fury.wav-66d51f0886ee3bf24c50baf711c19cf9.sample"
+
+[deps]
+
+source_file="res://ost/placeholder/chinesemidiboard - blade fury.wav"
+dest_files=["res://.godot/imported/chinesemidiboard - blade fury.wav-66d51f0886ee3bf24c50baf711c19cf9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

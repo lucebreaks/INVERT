@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqb1qhqy782tj"
+path="res://.godot/imported/TheClassicalBasshead - For The Expert Junglist.mp3-5c4ac55e586204531898bb7bac9c1d09.mp3str"
+
+[deps]
+
+source_file="res://ost/placeholder/TheClassicalBasshead - For The Expert Junglist.mp3"
+dest_files=["res://.godot/imported/TheClassicalBasshead - For The Expert Junglist.mp3-5c4ac55e586204531898bb7bac9c1d09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,285 @@
+[gd_scene format=3 uid="uid://d0fycdfhc8sou"]
+
+[ext_resource type="Script" uid="uid://bgaakn7ymatuu" path="res://car/body.gd" id="1_86ie0"]
+[ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://car/camera.gd" id="3_6he3t"]
+[ext_resource type="Script" uid="uid://bskeg0hryaja3" path="res://scripts/camera_pivot.gd" id="3_bnedl"]
+[ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://car/spring_arm_3d.gd" id="3_hoawj"]
+[ext_resource type="PackedScene" uid="uid://nx65f8r6v1nq" path="res://gfx/VOXTEKROLLERBODY.fbx" id="5_hoawj"]
+[ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="5_k3p4w"]
+[ext_resource type="PackedScene" uid="uid://dfijef1d2vrso" path="res://gfx/ROLLERFRONTWHEEL.fbx" id="7_o3a3v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hoawj"]
+friction = 0.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3a3v"]
+
+[sub_resource type="Sky" id="Sky_hoawj"]
+sky_material = SubResource("ProceduralSkyMaterial_o3a3v")
+
+[sub_resource type="Environment" id="Environment_37kl0"]
+background_mode = 2
+sky = SubResource("Sky_hoawj")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+fog_light_color = Color(0.14688179, 0.23379356, 0.49264753, 1)
+fog_light_energy = 0.2
+fog_sun_scatter = 0.35
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(3.8759766, 1.4791565, 9.799072)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 1.4850379
+
+[sub_resource type="LabelSettings" id="LabelSettings_6he3t"]
+font = ExtResource("5_k3p4w")
+font_size = 130
+
+[sub_resource type="LabelSettings" id="LabelSettings_hoawj"]
+font = ExtResource("5_k3p4w")
+font_size = 53
+
+[sub_resource type="LabelSettings" id="LabelSettings_o3a3v"]
+font = ExtResource("5_k3p4w")
+font_size = 130
+
+[node name="Node3D" type="Node3D" unique_id=1355136872]
+
+[node name="Axis" type="Node3D" parent="." unique_id=1936705706]
+script = ExtResource("3_bnedl")
+
+[node name="body" type="VehicleBody3D" parent="." unique_id=1572640223 node_paths=PackedStringArray("SPEEDOMETER_LABEL")]
+disable_mode = 2
+mass = 600.0
+physics_material_override = SubResource("PhysicsMaterial_hoawj")
+gravity_scale = 2.394
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -1.6, 0)
+can_sleep = false
+script = ExtResource("1_86ie0")
+ENGINE_POWER = 5000
+SPEEDOMETER_LABEL = NodePath("../CanvasLayer/Control/Speedo_counter")
+downforce_coefficient = 20.0
+max_downforce = 6000.0
+
+[node name="SpringArm3D" type="SpringArm3D" parent="body" unique_id=84782432 node_paths=PackedStringArray("target_node", "camera_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2246673, -2.209087)
+top_level = true
+collision_mask = 5
+spring_length = -10.0
+margin = 1.92
+script = ExtResource("3_hoawj")
+target_node = NodePath("../Node3D")
+follow_speed = 20.0
+camera_node = NodePath("Camera")
+min_fov = 90.0
+max_fov = 140.0
+fov_change_speed = 15.0
+
+[node name="Camera" type="Camera3D" parent="body/SpringArm3D" unique_id=70838006 node_paths=PackedStringArray("target")]
+transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
+environment = SubResource("Environment_37kl0")
+doppler_tracking = 2
+fov = 90.0
+near = 0.036
+script = ExtResource("3_6he3t")
+max_fov = 105.99
+max_speed = 50.0
+target = NodePath("../..")
+height = 10.0
+
+[node name="Node3D" type="Node3D" parent="body" unique_id=768743579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.735)
+
+[node name="VOXTEKROLLERBODY" parent="body" unique_id=2042977301 instance=ExtResource("5_hoawj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.073550224, 0.19613433)
+
+[node name="bodycol" type="CollisionShape3D" parent="body" unique_id=366864248]
+transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0.064834595, 0.312665)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="wheelcol1" type="CollisionShape3D" parent="body" unique_id=963048325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.049, 0, 3.0213287)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="wheelcol2" type="CollisionShape3D" parent="body" unique_id=1060582677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.048531, 0, 3.021)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="wheelcol3" type="CollisionShape3D" parent="body" unique_id=623763965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0490003, 0, -3.1349506)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="wheelcol4" type="CollisionShape3D" parent="body" unique_id=801084696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.048531, 0, -3.1352797)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="back1" type="VehicleWheel3D" parent="body" unique_id=2137117543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.377, 0, -3.1234524)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 1.745
+wheel_friction_slip = 100.0
+suspension_travel = 0.4
+suspension_stiffness = 50.0
+damping_compression = 1.5
+damping_relaxation = 2.0
+
+[node name="ROLLERFRONTWHEEL" parent="body/back1" unique_id=326956641 instance=ExtResource("7_o3a3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="back2" type="VehicleWheel3D" parent="body" unique_id=1047515133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.377, 0, -3.123)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 1.745
+wheel_friction_slip = 100.0
+suspension_travel = 0.4
+suspension_stiffness = 50.0
+damping_compression = 1.5
+damping_relaxation = 2.0
+
+[node name="ROLLERFRONTWHEEL" parent="body/back2" unique_id=424624550 instance=ExtResource("7_o3a3v")]
+
+[node name="front1" type="VehicleWheel3D" parent="body" unique_id=2024733669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.377, 0, 3.0570924)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 1.0
+wheel_radius = 1.745
+wheel_friction_slip = 100.0
+suspension_travel = 0.4
+suspension_stiffness = 50.0
+damping_compression = 1.5
+damping_relaxation = 2.0
+
+[node name="ROLLERFRONTWHEEL" parent="body/front1" unique_id=781305828 instance=ExtResource("7_o3a3v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="front2" type="VehicleWheel3D" parent="body" unique_id=625516510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.377, 0, 3.057545)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 1.0
+wheel_radius = 1.745
+wheel_friction_slip = 100.0
+suspension_travel = 0.4
+suspension_stiffness = 50.0
+damping_compression = 1.5
+damping_relaxation = 2.0
+
+[node name="ROLLERFRONTWHEEL" parent="body/front2" unique_id=2124522469 instance=ExtResource("7_o3a3v")]
+
+[node name="buttcast" type="RayCast3D" parent="body" unique_id=688554621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16, 0)
+
+[node name="headcast" type="RayCast3D" parent="body" unique_id=896986053]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 1.1604023, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="body" unique_id=1048384133]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.4298191, -0.14276397, 5.618258)
+light_energy = 12.396
+light_volumetric_fog_energy = 5.375
+light_size = 0.274
+spot_range = 290.71
+spot_angle = 65.2
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="body" unique_id=1891058446]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.43, -0.143, 5.618)
+light_energy = 12.396
+light_volumetric_fog_energy = 5.375
+light_size = 0.274
+spot_range = 290.71
+spot_angle = 65.2
+
+[node name="upsideback1" type="VehicleWheel3D" parent="body" unique_id=1285138815]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -3.377, 0, -3.1234524)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 1.745
+wheel_friction_slip = 100.0
+suspension_stiffness = 100.0
+
+[node name="ROLLERFRONTWHEEL" parent="body/upsideback1" unique_id=1144858931 instance=ExtResource("7_o3a3v")]
+transform = Transform3D(1, -8.742278e-08, 8.742278e-08, -8.742278e-08, -1, 0, 8.742278e-08, -7.642742e-15, -1, 0, 0, 0)
+visible = false
+
+[node name="upsideback2" type="VehicleWheel3D" parent="body" unique_id=1691069673]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 3.377, 0, -3.123)
+use_as_traction = true
+wheel_roll_influence = 1.0
+wheel_radius = 1.745
+wheel_friction_slip = 100.0
+suspension_stiffness = 100.0
+
+[node name="ROLLERFRONTWHEEL" parent="body/upsideback2" unique_id=528292471 instance=ExtResource("7_o3a3v")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="upsidefront1" type="VehicleWheel3D" parent="body" unique_id=59332662]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -3.377, 0, 3.0570924)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 1.0
+wheel_radius = 1.745
+wheel_friction_slip = 100.0
+suspension_stiffness = 100.0
+
+[node name="ROLLERFRONTWHEEL" parent="body/upsidefront1" unique_id=242246600 instance=ExtResource("7_o3a3v")]
+transform = Transform3D(1, -8.742278e-08, -1.509958e-07, -8.742278e-08, -1, 0, -1.509958e-07, 1.3200472e-14, -1, 0, 0, 0)
+visible = false
+
+[node name="upsidefront2" type="VehicleWheel3D" parent="body" unique_id=817791875]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 3.377, 0, 3.057545)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 1.0
+wheel_radius = 1.745
+wheel_friction_slip = 100.0
+suspension_stiffness = 100.0
+
+[node name="ROLLERFRONTWHEEL" parent="body/upsidefront2" unique_id=1023918928 instance=ExtResource("7_o3a3v")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1641678131]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=19276302]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1390498223]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 530.0
+offset_right = 327.0
+offset_bottom = 661.0
+text = "( ) ( )"
+label_settings = SubResource("LabelSettings_6he3t")
+
+[node name="kph" type="Label" parent="CanvasLayer/Control" unique_id=935168209]
+layout_mode = 0
+offset_left = 1064.0
+offset_top = 602.0
+offset_right = 1154.0
+offset_bottom = 656.0
+text = "km/h"
+label_settings = SubResource("LabelSettings_hoawj")
+
+[node name="Speedo_counter" type="Label" parent="CanvasLayer/Control" unique_id=193965284]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 507.0
+offset_right = 1141.0
+offset_bottom = 638.0
+text = "345"
+label_settings = SubResource("LabelSettings_o3a3v")
