@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bl08x24lsgtst"
+path="res://.godot/imported/tempaxle.obj-ba93e1b0c8e294a301dca4f8861bd42d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tempaxle.obj-ba93e1b0c8e294a301dca4f8861bd42d.mesh"]
+
+source_file="res://rollers/temp/tempaxle.obj"
+dest_files=["res://.godot/imported/tempaxle.obj-ba93e1b0c8e294a301dca4f8861bd42d.mesh", "res://.godot/imported/tempaxle.obj-ba93e1b0c8e294a301dca4f8861bd42d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

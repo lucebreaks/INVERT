@@ -5,6 +5,8 @@
 [ext_resource type="ArrayMesh" uid="uid://b8yhfguxwopbq" path="res://gfx/looptrak.obj" id="3_6uqi0"]
 [ext_resource type="ArrayMesh" uid="uid://tda8v7mwebep" path="res://testlevel/Republic Loop_collscenefix.obj" id="4_ykrsh"]
 [ext_resource type="PackedScene" uid="uid://vdk4wit8npx6" path="res://testlevel/RepublicfixLoop_trackscene.glb" id="5_g14j6"]
+[ext_resource type="PackedScene" uid="uid://drebasmmlepk7" path="res://AIroller.tscn" id="6_g14j6"]
+[ext_resource type="AudioStream" uid="uid://s5iwmxss8j7x" path="res://ost/placeholder/eratekk - Meltdown.mp3" id="7_vbegm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
 
@@ -76,6 +78,11 @@ data = PackedVector3Array(41.9899, 98.6868, 277.3672, 46.9934, 98.0611, 277.4297
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1358272807]
 transform = Transform3D(-0.133727, 0.517702, -0.845045, 0, 0.852704, 0.522394, 0.991018, 0.0698582, -0.11403, -13.7315, 12.9188, 0)
 shadow_enabled = true
+shadow_blur = 0.0
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.0
+directional_shadow_max_distance = 12.4
+directional_shadow_pancake_size = 366.7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=190612729]
 transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, 0, 0)
@@ -262,7 +269,7 @@ mesh = SubResource("BoxMesh_yf5fn")
 shape = SubResource("ConcavePolygonShape3D_77dp3")
 
 [node name="Roller" parent="." unique_id=1515756501 instance=ExtResource("2_6uqi0")]
-transform = Transform3D(0.02966621, 0.0034891157, -0.99955416, 0, 0.99999404, 0.0034906527, 0.99956024, -0.000103554376, 0.029666029, -141.47243, 14.198532, -244.48924)
+transform = Transform3D(0.99960154, -0.021934144, -0.017794725, 0.022052556, 0.9997361, 0.006482445, 0.01764784, -0.006872277, 0.9998211, 1330.7295, 295.6822, -867.6211)
 
 [node name="Testtrack01_6" type="MeshInstance3D" parent="." unique_id=1736765410]
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 1317.5999, 280.5284, -505.581)
@@ -295,3 +302,12 @@ transform = Transform3D(0.99999964, 0, 0.000813812, 0, 1, 0, -0.000813812, 0, 0.
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RepublicLoopCollscenefix/StaticBody3D" unique_id=1832041216]
 shape = SubResource("ConcavePolygonShape3D_a3se8")
+
+[node name="Roller2" parent="." unique_id=319548429 instance=ExtResource("6_g14j6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1305.8444, 294.22308, -867.8236)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=510721393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1449.7705, 0, -849.5615)
+stream = ExtResource("7_vbegm")
+attenuation_model = 3
+autoplay = true
