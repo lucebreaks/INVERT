@@ -16,6 +16,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
 friction = 0.35
 rough = true
+bounce = 0.3
 
 [sub_resource type="Curve" id="Curve_8uh7m"]
 _data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7), 0.0, 0.0, 0, 0]
