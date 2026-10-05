@@ -50,7 +50,6 @@ func _ready() -> void:
 	set_active(_active)
 
 
-# just to facilitate the examples
 func _init_input_actions() -> void:
 	var _actions := {
 		"accelerate" = [KEY_UP,    KEY_W, KEY_I],
@@ -104,15 +103,11 @@ func set_active(enable: bool) -> void:
 
 
 func recover() -> void:
-	# need to wait a bit or it won't work sometimes
 	await get_tree().physics_frame
 
 	angular_velocity = Vector3.ZERO
 	linear_velocity = Vector3.ZERO
 
 	global_rotation = Vector3(0, global_rotation.y, 0)
-
-	# add to the Y position, so it's relative to current ground elevation,
-	# and to Z to help with when car is stuck on ledges
 	global_position += global_basis.y + global_basis.z*2
 	

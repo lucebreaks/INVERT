@@ -13,14 +13,13 @@ extends RigidBody3D
 @export_group("Aerodynamics")
 @export var downforce_coefficient: float = 2.0 
 @export var max_downforce: float = 1500.0 
-@export var ground_downforce: float = 1500.0 # Force applied when grounded
+@export var ground_downforce: float = 1500.0
 @export_node_path("RigidBody3D") var wheels_parent_path
 
 @onready var wheels_parent = get_node(wheels_parent_path)
 
 @onready var engine_sound: AudioStreamPlayer3D = $EngineSound
 
-# Adjust these values to fit your specific audio clip
 @export var min_pitch: float = 0.6
 @export var max_pitch: float = 20.0
 
@@ -69,11 +68,9 @@ func _physics_process(_delta: float) -> void:
 		_do_single_wheel_tractions(wheel)
 		
 	if is_any_raycast_grounded():
-		# Apply downforce local to the vehicle's "down" direction
 		var down_vector = -global_transform.basis.y
 		apply_central_force(down_vector * ground_downforce)
 	else:
-		# Downforce is implicitly 0 here because we apply nothing
 		pass
 
 
@@ -159,7 +156,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		state.apply_central_force(local_down_vector * downforce_amount)
 
 	if state.angular_velocity.length() > 0.1:
-		# Gently decelerate rotational glitching back down to sanity
 		state.angular_velocity = state.angular_velocity.lerp(Vector3.ZERO, 2.0 * get_physics_process_delta_time())
 		
 func is_any_raycast_grounded() -> bool:
@@ -169,17 +165,12 @@ func is_any_raycast_grounded() -> bool:
 	for child in wheels_parent.get_children():
 		if child is RayCast3D:
 			if child.is_colliding():
-				return true # Found a wheel touching the ground!
+				return true 
 				
 	return false
 
 
 func _process(delta: float) -> void:
-	# Get current speed magnitude
 	var current_speed = linear_velocity.length()
-	
-	# Calculate a pitch factor based on speed ratio
 	var speed_ratio = clamp(current_speed / max_speed, 0.0, 1.0)
-	
-	# Interpolate pitch smoothly between min and max
 	engine_sound.pitch_scale = lerp(min_pitch, max_pitch, speed_ratio)
