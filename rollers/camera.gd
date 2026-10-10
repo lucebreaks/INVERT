@@ -5,7 +5,7 @@ extends Camera3D
 @export var min_speed: float = 0.0
 @export var max_speed: float = 5.0
 @export var lerp_speed: float = 10.0
-@export var target: RigidBody3D       
+@export var target: RigidBody3D    
 @export var distance: float = 5.0 
 @export var height: float = 2.0 
 @export var follow_speed: float = 5.0  

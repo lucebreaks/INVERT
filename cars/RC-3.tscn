@@ -1,0 +1,301 @@
+[gd_scene format=3 uid="uid://btffcxddld0fr"]
+
+[ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_aavoo"]
+[ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_uphae"]
+[ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="3_i5p3j"]
+[ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="4_phdc7"]
+[ext_resource type="Environment" uid="uid://chggw4t7ipglj" path="res://camera/testenvironment.tres" id="5_72yoa"]
+[ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="5_oohw5"]
+[ext_resource type="PackedScene" uid="uid://c6637dknibb5d" path="res://rollers/wrob3l rollers/rc-3.fbx" id="6_md7pq"]
+[ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="10_kagiu"]
+[ext_resource type="ArrayMesh" uid="uid://dqx5d7b00fy24" path="res://rollers/wheels/slicks.obj" id="11_ep75d"]
+[ext_resource type="PackedScene" uid="uid://36necb1wwgga" path="res://rollers/temp/rollerwheel.fbx" id="12_kuiev"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
+friction = 0.35
+rough = true
+bounce = 0.3
+
+[sub_resource type="Curve" id="Curve_8uh7m"]
+_data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_x7clb"]
+font = ExtResource("5_oohw5")
+font_size = 130
+
+[sub_resource type="LabelSettings" id="LabelSettings_6q0nu"]
+font = ExtResource("5_oohw5")
+font_size = 53
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ck66"]
+font = ExtResource("5_oohw5")
+font_size = 130
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(8.076908, 0.84300995, 8.720451)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_72yoa"]
+radius = 1.4850379
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ck66"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjvwn"]
+metallic = 0.82
+metallic_specular = 0.35
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cync"]
+shading_mode = 2
+albedo_color = Color(0.118581556, 0.11858132, 0.11858139, 1)
+roughness_texture_channel = 4
+stencil_flags = 2
+stencil_outline_thickness = 0.117
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
+height = 1.2
+radius = 1.733
+
+[node name="RC-3" type="Node3D" unique_id=1515756501]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("SPEEDOMETER_LABEL", "wheels")]
+collision_layer = 5
+mass = 388.0
+physics_material_override = SubResource("PhysicsMaterial_yf5fn")
+gravity_scale = 4.0
+script = ExtResource("1_aavoo")
+SPEEDOMETER_LABEL = NodePath("CanvasLayer/Control/Speedo_counter")
+wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
+acceleration = -10000.0
+max_speed = 1600.0
+accel_curve = SubResource("Curve_8uh7m")
+tire_turn_speed = 1.0
+wheels_parent_path = NodePath(".")
+
+[node name="Node3D" type="Node3D" parent="RigidBody3D" unique_id=2139802655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.6826134)
+
+[node name="EngineSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=609267786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.4712148)
+stream = ExtResource("2_uphae")
+volume_db = -16.706
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="RigidBody3D" unique_id=325419159]
+
+[node name="Control" type="Control" parent="RigidBody3D/CanvasLayer" unique_id=1757158654]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="RigidBody3D/CanvasLayer/Control" unique_id=1908278143]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 530.0
+offset_right = 327.0
+offset_bottom = 661.0
+text = "( ) ( )"
+label_settings = SubResource("LabelSettings_x7clb")
+
+[node name="kph" type="Label" parent="RigidBody3D/CanvasLayer/Control" unique_id=1160468760]
+layout_mode = 0
+offset_left = 1064.0
+offset_top = 602.0
+offset_right = 1154.0
+offset_bottom = 656.0
+text = "km/h"
+label_settings = SubResource("LabelSettings_6q0nu")
+
+[node name="Speedo_counter" type="Label" parent="RigidBody3D/CanvasLayer/Control" unique_id=1004245049]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 507.0
+offset_right = 1141.0
+offset_bottom = 638.0
+text = "345"
+label_settings = SubResource("LabelSettings_6ck66")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1701185897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008963585, -0.0004081726, -0.24934006)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="wheelcol1" type="CollisionShape3D" parent="RigidBody3D" unique_id=772542105]
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -3.4400363, -0.030391693, 3.8428676)
+shape = SubResource("SphereShape3D_72yoa")
+
+[node name="wheelcol2" type="CollisionShape3D" parent="RigidBody3D" unique_id=1948189864]
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.4576328, -0.030391693, 3.8425388)
+shape = SubResource("SphereShape3D_72yoa")
+
+[node name="wheelcol3" type="CollisionShape3D" parent="RigidBody3D" unique_id=862278698]
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -3.4400363, -0.030391693, -3.6711776)
+shape = SubResource("SphereShape3D_72yoa")
+
+[node name="wheelcol4" type="CollisionShape3D" parent="RigidBody3D" unique_id=1672203483]
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.4576328, -0.030391693, -3.6715066)
+shape = SubResource("SphereShape3D_72yoa")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="RigidBody3D" unique_id=44106153 node_paths=PackedStringArray("target_node", "camera_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0086584, -2.209087)
+top_level = true
+collision_mask = 5
+spring_length = -10.0
+margin = 1.92
+script = ExtResource("3_i5p3j")
+target_node = NodePath("../Node3D")
+follow_speed = 20.0
+fixed_height_offset = 3.3
+height_smooth_speed = 8.38
+camera_node = NodePath("Camera")
+min_fov = 90.0
+max_fov = 120.0
+max_speed = 10.0
+
+[node name="Camera" type="Camera3D" parent="RigidBody3D/SpringArm3D" unique_id=37106502 node_paths=PackedStringArray("target")]
+transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
+cull_mask = 524287
+environment = ExtResource("5_72yoa")
+doppler_tracking = 2
+fov = 90.0
+near = 0.036
+script = ExtResource("4_phdc7")
+min_fov = 90.0
+target = NodePath("../..")
+
+[node name="rc-3" parent="RigidBody3D" unique_id=982552874 instance=ExtResource("6_md7pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.558)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="RigidBody3D/rc-3" unique_id=2037134250]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.2777565, -0.14276397, 4.6273594)
+light_energy = 12.396
+light_volumetric_fog_energy = 5.375
+light_size = 0.274
+spot_range = 290.71
+spot_angle = 65.2
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="RigidBody3D/rc-3" unique_id=646900378]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.2779372, -0.143, 4.6271014)
+light_energy = 12.396
+light_volumetric_fog_energy = 5.375
+light_size = 0.274
+spot_range = 290.71
+spot_angle = 65.2
+
+[node name="wheelFL" type="RayCast3D" parent="RigidBody3D" unique_id=1693070349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.493, 0, 3.8462453)
+enabled = false
+target_position = Vector3(0, -1.835, 0)
+collision_mask = 5
+script = ExtResource("10_kagiu")
+spring_strength = 50000.0
+spring_damping = 3000
+wheel_radius = 1.6
+is_motor = true
+
+[node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=1876027004]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.60800004, 0, 0)
+mesh = ExtResource("11_ep75d")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_6ck66")
+surface_material_override/1 = SubResource("StandardMaterial3D_rjvwn")
+surface_material_override/2 = SubResource("StandardMaterial3D_4cync")
+
+[node name="Wheel" parent="RigidBody3D/wheelFL" unique_id=1725978432 instance=ExtResource("12_kuiev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5920677, 0, 0)
+visible = false
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFL" unique_id=1442548222]
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_g4v7s")
+
+[node name="wheelRL" type="RayCast3D" parent="RigidBody3D" unique_id=1425667283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.493, 0, -3.6540828)
+enabled = false
+target_position = Vector3(0, -1.835, 0)
+collision_mask = 5
+script = ExtResource("10_kagiu")
+spring_strength = 50000.0
+spring_damping = 3000
+wheel_radius = 1.6
+is_motor = true
+
+[node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=1195414284]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.60800004, 0, 0)
+mesh = ExtResource("11_ep75d")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_6ck66")
+surface_material_override/1 = SubResource("StandardMaterial3D_rjvwn")
+surface_material_override/2 = SubResource("StandardMaterial3D_4cync")
+
+[node name="Wheel" parent="RigidBody3D/wheelRL" unique_id=188379106 instance=ExtResource("12_kuiev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5920677, 0, 0)
+visible = false
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRL" unique_id=1939323894]
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_g4v7s")
+
+[node name="wheelFR" type="RayCast3D" parent="RigidBody3D" unique_id=1400942630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.493098, 0, 3.8462453)
+enabled = false
+target_position = Vector3(0, -1.835, 0)
+collision_mask = 5
+script = ExtResource("10_kagiu")
+spring_strength = 50000.0
+spring_damping = 3000
+wheel_radius = 1.6
+is_motor = true
+
+[node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=1495513598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6080208, 0, 0.00045013428)
+mesh = ExtResource("11_ep75d")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_6ck66")
+surface_material_override/1 = SubResource("StandardMaterial3D_rjvwn")
+surface_material_override/2 = SubResource("StandardMaterial3D_4cync")
+
+[node name="Wheel" parent="RigidBody3D/wheelFR" unique_id=1330070240 instance=ExtResource("12_kuiev")]
+transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, -0.592, 0, 0)
+visible = false
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFR" unique_id=113828537]
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_g4v7s")
+target_position = Vector3(0, 1, 0)
+
+[node name="wheelRR" type="RayCast3D" parent="RigidBody3D" unique_id=516100797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.493098, 0, -3.6540828)
+enabled = false
+target_position = Vector3(0, -1.835, 0)
+collision_mask = 5
+script = ExtResource("10_kagiu")
+spring_strength = 50000.0
+spring_damping = 3000
+wheel_radius = 1.6
+is_motor = true
+
+[node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=676297244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6080208, 0, 0.00045013428)
+mesh = ExtResource("11_ep75d")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_6ck66")
+surface_material_override/1 = SubResource("StandardMaterial3D_rjvwn")
+surface_material_override/2 = SubResource("StandardMaterial3D_4cync")
+
+[node name="Wheel" parent="RigidBody3D/wheelRR" unique_id=983639141 instance=ExtResource("12_kuiev")]
+transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, -0.592, 0, 0)
+visible = false
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRR" unique_id=571723821]
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_g4v7s")
+target_position = Vector3(0, 1, 0)

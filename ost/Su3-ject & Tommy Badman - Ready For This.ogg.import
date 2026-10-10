@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://fspt52rpxgev"
+path="res://.godot/imported/Su3-ject & Tommy Badman - Ready For This.ogg-6b5a41d085d463948047c71f512f71ae.oggvorbisstr"
+
+[deps]
+
+source_file="res://ost/Su3-ject & Tommy Badman - Ready For This.ogg"
+dest_files=["res://.godot/imported/Su3-ject & Tommy Badman - Ready For This.ogg-6b5a41d085d463948047c71f512f71ae.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

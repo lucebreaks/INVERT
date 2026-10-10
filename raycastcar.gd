@@ -82,7 +82,9 @@ func _get_point_velocity(point: Vector3) -> Vector3:
 	
 func _do_single_wheel_tractions(ray: RaycastWheel) -> void:
 	if not ray.is_colliding(): return
-	
+	for wheel in wheels:
+		wheel.force_raycast_update()
+		
 	var steer_side_dir := ray.global_basis.x
 	var tire_vel := _get_point_velocity(ray.wheel.global_position)
 	var steering_x_vel := steer_side_dir.dot(tire_vel)
