@@ -1,9 +1,12 @@
 [gd_resource type="Environment" format=3 uid="uid://chggw4t7ipglj"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b0q6j"]
+[ext_resource type="Texture2D" uid="uid://bf05kanf521cb" path="res://testlevel/Republic Loop - sky panorama.png" id="1_3vt0v"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0opeb"]
+panorama = ExtResource("1_3vt0v")
 
 [sub_resource type="Sky" id="Sky_0m0f1"]
-sky_material = SubResource("ProceduralSkyMaterial_b0q6j")
+sky_material = SubResource("PanoramaSkyMaterial_0opeb")
 
 [resource]
 background_mode = 2
