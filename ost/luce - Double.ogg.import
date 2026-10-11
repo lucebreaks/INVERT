@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0xg10hmlbn6c"
+path="res://.godot/imported/luce - Double.ogg-d714355818d65974609f84ca2d90a1eb.oggvorbisstr"
+
+[deps]
+
+source_file="res://ost/luce - Double.ogg"
+dest_files=["res://.godot/imported/luce - Double.ogg-d714355818d65974609f84ca2d90a1eb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

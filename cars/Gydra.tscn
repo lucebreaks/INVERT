@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="3_jnfja"]
 [ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="4_vruew"]
 [ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="5_n4oyy"]
+[ext_resource type="ArrayMesh" uid="uid://bl08x24lsgtst" path="res://rollers/temp/tempaxle.obj" id="7_amjfk"]
+[ext_resource type="ArrayMesh" uid="uid://cef0cnoo6lrlc" path="res://rollers/wheels/drift.obj" id="8_1v0br"]
 [ext_resource type="ArrayMesh" uid="uid://bk2fr8jnch7yb" path="res://rollers/wrob3l rollers/Gydra.obj" id="8_vc2rn"]
 [ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="9_d8ssg"]
-[ext_resource type="ArrayMesh" uid="uid://dqx5d7b00fy24" path="res://rollers/wheels/slicks.obj" id="10_gbx28"]
-[ext_resource type="PackedScene" uid="uid://36necb1wwgga" path="res://rollers/temp/rollerwheel.fbx" id="11_fvwh4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
 friction = 0.35
@@ -44,19 +44,8 @@ albedo_color = Color(0.24840015, 0.24840018, 0.24840015, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfo1m"]
 albedo_color = Color(0.21230483, 0.21230483, 0.21230483, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ck66"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjvwn"]
-metallic = 0.82
-metallic_specular = 0.35
-roughness = 0.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cync"]
-shading_mode = 2
-albedo_color = Color(0.118581556, 0.11858132, 0.11858139, 1)
-roughness_texture_channel = 4
-stencil_flags = 2
-stencil_outline_thickness = 0.117
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5247f"]
+albedo_color = Color(0.9960514, 0.58646965, 0, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
 height = 1.2
@@ -177,6 +166,11 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_636pu")
 surface_material_override/4 = SubResource("StandardMaterial3D_hfo1m")
 
+[node name="Tempaxle" type="MeshInstance3D" parent="RigidBody3D/Gydra" unique_id=672275252]
+transform = Transform3D(0.9206805, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.42179203)
+mesh = ExtResource("7_amjfk")
+skeleton = NodePath("../..")
+
 [node name="SpotLight3D" type="SpotLight3D" parent="RigidBody3D/Gydra" unique_id=2037134250]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.4298191, 0, 4.7374907)
 light_energy = 12.396
@@ -204,17 +198,11 @@ spring_damping = 3000
 wheel_radius = 1.6
 is_motor = true
 
-[node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=1876027004]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.60800004, 0, 0)
-mesh = ExtResource("10_gbx28")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_6ck66")
-surface_material_override/1 = SubResource("StandardMaterial3D_rjvwn")
-surface_material_override/2 = SubResource("StandardMaterial3D_4cync")
-
-[node name="Wheel" parent="RigidBody3D/wheelFL" unique_id=1725978432 instance=ExtResource("11_fvwh4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5920677, 0, 0)
-visible = false
+[node name="Drift" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=981255975]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.67028284, 0, 0)
+mesh = ExtResource("8_1v0br")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_5247f")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFL" unique_id=1442548222]
 process_physics_priority = -1
@@ -232,17 +220,11 @@ spring_damping = 3000
 wheel_radius = 1.6
 is_motor = true
 
-[node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=1195414284]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.60800004, 0, 0)
-mesh = ExtResource("10_gbx28")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_6ck66")
-surface_material_override/1 = SubResource("StandardMaterial3D_rjvwn")
-surface_material_override/2 = SubResource("StandardMaterial3D_4cync")
-
-[node name="Wheel" parent="RigidBody3D/wheelRL" unique_id=188379106 instance=ExtResource("11_fvwh4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5920677, 0, 0)
-visible = false
+[node name="Drift" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=415273480]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.67028284, 0, 0)
+mesh = ExtResource("8_1v0br")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_5247f")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRL" unique_id=1939323894]
 process_physics_priority = -1
@@ -260,17 +242,11 @@ spring_damping = 3000
 wheel_radius = 1.6
 is_motor = true
 
-[node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=1495513598]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6080208, 0, 0.00045013428)
-mesh = ExtResource("10_gbx28")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_6ck66")
-surface_material_override/1 = SubResource("StandardMaterial3D_rjvwn")
-surface_material_override/2 = SubResource("StandardMaterial3D_4cync")
-
-[node name="Wheel" parent="RigidBody3D/wheelFR" unique_id=1330070240 instance=ExtResource("11_fvwh4")]
-transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, -0.592, 0, 0)
-visible = false
+[node name="Drift" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=362579501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6700001, 0, 0)
+mesh = ExtResource("8_1v0br")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_5247f")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFR" unique_id=113828537]
 process_physics_priority = -1
@@ -289,17 +265,11 @@ spring_damping = 3000
 wheel_radius = 1.6
 is_motor = true
 
-[node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=676297244]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6080208, 0, 0.00045013428)
-mesh = ExtResource("10_gbx28")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_6ck66")
-surface_material_override/1 = SubResource("StandardMaterial3D_rjvwn")
-surface_material_override/2 = SubResource("StandardMaterial3D_4cync")
-
-[node name="Wheel" parent="RigidBody3D/wheelRR" unique_id=983639141 instance=ExtResource("11_fvwh4")]
-transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, -0.592, 0, 0)
-visible = false
+[node name="Drift" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=83405055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6700001, 0, 0)
+mesh = ExtResource("8_1v0br")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_5247f")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRR" unique_id=571723821]
 process_physics_priority = -1

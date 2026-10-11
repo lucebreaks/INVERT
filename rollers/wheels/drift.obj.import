@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cef0cnoo6lrlc"
+path="res://.godot/imported/drift.obj-ad732e6425f95fcb9ff552e34ee374ee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/drift.obj-ad732e6425f95fcb9ff552e34ee374ee.mesh"]
+
+source_file="res://rollers/wheels/drift.obj"
+dest_files=["res://.godot/imported/drift.obj-ad732e6425f95fcb9ff552e34ee374ee.mesh", "res://.godot/imported/drift.obj-ad732e6425f95fcb9ff552e34ee374ee.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
