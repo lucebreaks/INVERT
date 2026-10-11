@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://qcsbhcgsqshj" path="res://ost/Roominsky - Abyss.ogg" id="5_mhym6"]
 [ext_resource type="AudioStream" uid="uid://uxdlqs456g0g" path="res://ost/Roominsky - Asylum.ogg" id="6_a3se8"]
 [ext_resource type="AudioStream" uid="uid://mnuq6utoldrx" path="res://ost/Sidewinder_wip175.mp3" id="7_0m0f1"]
-[ext_resource type="PackedScene" uid="uid://d0edpcwneahdb" path="res://cars/Stage V.tscn" id="13_0m0f1"]
+[ext_resource type="PackedScene" uid="uid://dk5uo3ecyinfb" path="res://cars/Bullet.tscn" id="13_0m0f1"]
 [ext_resource type="ArrayMesh" uid="uid://dwhufqaaypthw" path="res://New folder/pipetest.obj" id="20_vxl6d"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ayo7v"]
@@ -349,5 +349,5 @@ mesh = ExtResource("20_vxl6d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipetest2/StaticBody3D" unique_id=1995445996]
 shape = SubResource("ConcavePolygonShape3D_eski5")
 
-[node name="Stage V" parent="." unique_id=1515756501 instance=ExtResource("13_0m0f1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -337.09253, 28.21106, 831.90283)
+[node name="Bullet" parent="." unique_id=1515756501 instance=ExtResource("13_0m0f1")]
+transform = Transform3D(0.18598957, 0, -0.9825517, 0, 1, 0, 0.9825517, 0, 0.18598957, -138.94028, 817.5155, -246.3601)
