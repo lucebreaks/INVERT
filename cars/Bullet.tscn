@@ -74,6 +74,9 @@ acceleration = -10000.0
 max_speed = 1600.0
 accel_curve = SubResource("Curve_8uh7m")
 tire_turn_speed = 1.0
+max_speed_kmh = 800.0
+shake_threshold_kmh = 300.0
+shake_speed = 3.0
 wheels_parent_path = NodePath(".")
 
 [node name="Node3D" type="Node3D" parent="RigidBody3D" unique_id=2139802655]
@@ -97,9 +100,6 @@ follow_speed = 20.0
 fixed_height_offset = 3.3
 height_smooth_speed = 8.38
 camera_node = NodePath("Camera")
-min_fov = 90.0
-max_fov = 120.0
-max_speed = 10.0
 
 [node name="Camera" type="Camera3D" parent="RigidBody3D/SpringArm3D" unique_id=444824457 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
@@ -109,7 +109,6 @@ doppler_tracking = 2
 fov = 90.0
 near = 0.036
 script = ExtResource("4_al1rl")
-min_fov = 90.0
 target = NodePath("../..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="RigidBody3D" unique_id=325419159]

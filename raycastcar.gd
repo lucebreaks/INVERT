@@ -9,6 +9,15 @@ extends RigidBody3D
 @export var accel_curve : Curve
 @export var tire_turn_speed := 2.0
 @export var tire_max_turn_degrees := 25
+@onready var camera = $SpringArm3D/Camera # Adjust this path to match your Camera3D node
+@export var max_speed_kmh: float = 150.0  # Speed where camera shake reaches maximum strength
+@export var shake_threshold_kmh: float = 60.0 # Speed where camera shake starts appearing
+
+
+@export var max_shake_amplitude: float = 0.4
+@export var shake_speed: float = 30.0
+
+var shake_timer: float = 0.0
 
 @export_group("Aerodynamics")
 @export var downforce_coefficient: float = 2.0 
@@ -74,9 +83,43 @@ func _physics_process(_delta: float) -> void:
 		pass
 
 
+	var raw_speed = linear_velocity.length()
+	var display_speed = raw_speed * 3.6 
 	if SPEEDOMETER_LABEL:
-		SPEEDOMETER_LABEL.text = str(linear_velocity.length() * 3.9)
+		SPEEDOMETER_LABEL.text = "%.0f" % display_speed
+		
+	var current_speed_kmh = raw_speed * 3.6
+	# 3. Handle Camera Shake
+	apply_high_speed_shake(current_speed_kmh, _delta)
 
+func apply_high_speed_shake(current_speed: float, delta: float) -> void:
+	if not camera:
+		return
+		
+	# If we are below the speed threshold, reset camera offset and exit
+	if current_speed < shake_threshold_kmh:
+		camera.h_offset = 0.0
+		camera.v_offset = 0.0
+		return
+		
+	# Calculate a 0.0 to 1.0 ratio of how fast we are going between threshold and max speed
+	var speed_range = max_speed_kmh - shake_threshold_kmh
+	var speed_factor = (current_speed - shake_threshold_kmh) / speed_range
+	speed_factor = clamp(speed_factor, 0.0, 1.0) # Keep it strictly between 0 and 1
+	
+	# Advance a timer to sample random noise or sine waves smoothly
+	shake_timer += delta * shake_speed
+	
+	# Generate random offsets scaled by our current speed factor
+	# Using sin/cos makes the vibration look cleaner than pure random numbers
+	var shake_x = sin(shake_timer) * max_shake_amplitude * speed_factor
+	var shake_y = cos(shake_timer * 1.5) * max_shake_amplitude * speed_factor
+	
+	# Apply the offset to the camera
+	camera.h_offset = shake_x
+	camera.v_offset = shake_y
+	
+	
 func _get_point_velocity(point: Vector3) -> Vector3:
 	return linear_velocity + angular_velocity.cross(point - global_position)
 	

@@ -10,9 +10,9 @@ extends SpringArm3D
 
 @export_group("Dynamic FOV")
 @export var camera_node: Camera3D      
-@export var min_fov: float = 70.0      
-@export var max_fov: float = 95.0      
-@export var max_speed: float = 30.0    
+@export var min_fov: float = 90.0      
+@export var max_fov: float = 120.0     
+@export var max_speed: float = 10.0    
 @export var fov_change_speed: float = 5.0 
 
 var noise: FastNoiseLite = FastNoiseLite.new()
