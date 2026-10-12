@@ -18,6 +18,10 @@ point_count = 4
 metadata/_snap_enabled = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mc8mk"]
+sky_top_color = Color(0.09654612, 0.12467157, 0.16213462, 1)
+sky_horizon_color = Color(0.08225953, 0.084843405, 0.09001712, 1)
+ground_bottom_color = Color(0.10476319, 0.084950976, 0.06265449, 1)
+ground_horizon_color = Color(0.078419976, 0.080932565, 0.085963584, 1)
 
 [sub_resource type="Sky" id="Sky_5x7u6"]
 sky_material = SubResource("ProceduralSkyMaterial_mc8mk")

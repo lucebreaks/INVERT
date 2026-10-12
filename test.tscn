@@ -14,8 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://d08x5omh8gi6l" path="res://ost/chinesemidiboard - delta 4.wav" id="8_uty7l"]
 [ext_resource type="AudioStream" uid="uid://d0xg10hmlbn6c" path="res://ost/luce - Double.ogg" id="9_45l4g"]
 [ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/luce - backdraft (WIP).ogg" id="10_45l4g"]
-[ext_resource type="PackedScene" uid="uid://d0edpcwneahdb" path="res://cars/Stage V.tscn" id="17_uty7l"]
 [ext_resource type="ArrayMesh" uid="uid://dwhufqaaypthw" path="res://New folder/pipetest.obj" id="20_vxl6d"]
+[ext_resource type="PackedScene" uid="uid://dk5uo3ecyinfb" path="res://cars/Bullet.tscn" id="22_a6gra"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ayo7v"]
 shuffle = true
@@ -110,6 +110,7 @@ stream = SubResource("AudioStreamPlaylist_ayo7v")
 attenuation_model = 3
 unit_size = 100.0
 autoplay = true
+panning_strength = 0.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1358272807]
 transform = Transform3D(-0.133727, 0.517702, -0.845045, 0, 0.852704, 0.522394, 0.991018, 0.0698582, -0.11403, -13.7315, 12.9188, 0)
@@ -356,5 +357,5 @@ mesh = ExtResource("20_vxl6d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipetest2/StaticBody3D" unique_id=1995445996]
 shape = SubResource("ConcavePolygonShape3D_eski5")
 
-[node name="Stage V" parent="." unique_id=1515756501 instance=ExtResource("17_uty7l")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -136.381, 817.6105, -260.5449)
+[node name="Bullet" parent="." unique_id=841274588 instance=ExtResource("22_a6gra")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -124.72394, 818.54724, -239.7619)
