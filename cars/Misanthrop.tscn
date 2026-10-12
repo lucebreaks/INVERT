@@ -194,7 +194,7 @@ collision_mask = 5
 script = ExtResource("8_jg26n")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.6
+wheel_radius = 1.69
 is_motor = true
 
 [node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=1876027004]
@@ -222,7 +222,7 @@ collision_mask = 5
 script = ExtResource("8_jg26n")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.6
+wheel_radius = 1.69
 is_motor = true
 
 [node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=1195414284]
@@ -250,7 +250,7 @@ collision_mask = 5
 script = ExtResource("8_jg26n")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.6
+wheel_radius = 1.69
 is_motor = true
 
 [node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=1495513598]
@@ -279,7 +279,7 @@ collision_mask = 5
 script = ExtResource("8_jg26n")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.6
+wheel_radius = 1.69
 is_motor = true
 
 [node name="Slicks" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=676297244]

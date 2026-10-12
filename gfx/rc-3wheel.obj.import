@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://boxbdkdgh5a3t"
+path="res://.godot/imported/rc-3wheel.obj-536e7ac67ef6c493242bcb16a7a08695.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rc-3wheel.obj-536e7ac67ef6c493242bcb16a7a08695.mesh"]
+
+source_file="res://gfx/rc-3wheel.obj"
+dest_files=["res://.godot/imported/rc-3wheel.obj-536e7ac67ef6c493242bcb16a7a08695.mesh", "res://.godot/imported/rc-3wheel.obj-536e7ac67ef6c493242bcb16a7a08695.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

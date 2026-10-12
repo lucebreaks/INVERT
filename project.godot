@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/easy-compositor/plugin.cfg", "res://addons/easy_3d_spin_blur/plugin.cfg", "res://addons/godot-motion-blur/plugin.cfg")
+enabled=PackedStringArray("res://addons/easy_3d_spin_blur/plugin.cfg")
 
 [input]
 

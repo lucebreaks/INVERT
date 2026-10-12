@@ -129,7 +129,7 @@ collision_mask = 5
 script = ExtResource("7_8igqx")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.6
+wheel_radius = 1.69
 is_motor = true
 
 [node name="Truck" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=131365829]
@@ -153,7 +153,7 @@ collision_mask = 5
 script = ExtResource("7_8igqx")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.6
+wheel_radius = 1.69
 is_motor = true
 
 [node name="Truck" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=1556277914]
@@ -176,7 +176,7 @@ collision_mask = 5
 script = ExtResource("7_8igqx")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.6
+wheel_radius = 1.69
 is_motor = true
 
 [node name="Truck" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=1751883720]
@@ -199,7 +199,7 @@ collision_mask = 5
 script = ExtResource("7_8igqx")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.6
+wheel_radius = 1.69
 is_motor = true
 
 [node name="Truck" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=999865681]
