@@ -6,33 +6,37 @@
 [ext_resource type="ArrayMesh" uid="uid://b8yhfguxwopbq" path="res://gfx/looptrak.obj" id="3_6uqi0"]
 [ext_resource type="AudioStream" uid="uid://b0i8b4x1k5kdy" path="res://ost/Gamma_wip.mp3" id="3_45l4g"]
 [ext_resource type="AudioStream" uid="uid://fspt52rpxgev" path="res://ost/Su3-ject & Tommy Badman - Ready For This.ogg" id="4_b0q6j"]
+[ext_resource type="AudioStream" uid="uid://dcmigiciuyqwk" path="res://ost/gs franc - Chase.ogg" id="4_eski5"]
 [ext_resource type="ArrayMesh" uid="uid://tda8v7mwebep" path="res://testlevel/Republic Loop_collscenefix.obj" id="4_ykrsh"]
 [ext_resource type="AudioStream" uid="uid://cr3ayyiipsm4y" path="res://ost/gs franc - Cure for the itch.ogg" id="5_00tp4"]
 [ext_resource type="PackedScene" uid="uid://vdk4wit8npx6" path="res://testlevel/RepublicfixLoop_trackscene.glb" id="5_g14j6"]
 [ext_resource type="AudioStream" uid="uid://qcsbhcgsqshj" path="res://ost/Roominsky - Abyss.ogg" id="5_mhym6"]
+[ext_resource type="AudioStream" uid="uid://bwhp2bi65pfjx" path="res://ost/gs franc - Quicksand.ogg" id="5_pdf00"]
 [ext_resource type="AudioStream" uid="uid://uxdlqs456g0g" path="res://ost/Roominsky - Asylum.ogg" id="6_a3se8"]
-[ext_resource type="AudioStream" uid="uid://mnuq6utoldrx" path="res://ost/Sidewinder_wip175.mp3" id="7_0m0f1"]
+[ext_resource type="AudioStream" uid="uid://betdjb7oi57mp" path="res://ost/gs franc - Sharpest steel XL.ogg" id="6_a6gra"]
+[ext_resource type="AudioStream" uid="uid://cv6wnms7hyd2" path="res://ost/LDOT & Skunkworx - Stress Test.ogg" id="7_a6gra"]
 [ext_resource type="AudioStream" uid="uid://d08x5omh8gi6l" path="res://ost/chinesemidiboard - delta 4.wav" id="8_uty7l"]
-[ext_resource type="AudioStream" uid="uid://d0xg10hmlbn6c" path="res://ost/luce - Double.ogg" id="9_45l4g"]
 [ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/luce - backdraft (WIP).ogg" id="10_45l4g"]
 [ext_resource type="PackedScene" uid="uid://d0edpcwneahdb" path="res://cars/Stage V.tscn" id="17_4uo0j"]
-[ext_resource type="PackedScene" uid="uid://btffcxddld0fr" path="res://cars/RC-3.tscn" id="17_uty7l"]
 [ext_resource type="ArrayMesh" uid="uid://dwhufqaaypthw" path="res://New folder/pipetest.obj" id="20_vxl6d"]
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ayo7v"]
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_b0q6j"]
 shuffle = true
-stream_count = 11
-stream_0 = ExtResource("1_77dp3")
-stream_1 = ExtResource("1_ehkex")
-stream_2 = ExtResource("5_00tp4")
-stream_3 = ExtResource("4_b0q6j")
-stream_4 = ExtResource("5_mhym6")
-stream_5 = ExtResource("6_a3se8")
-stream_6 = ExtResource("7_0m0f1")
-stream_7 = ExtResource("8_uty7l")
-stream_8 = ExtResource("9_45l4g")
-stream_9 = ExtResource("10_45l4g")
-stream_10 = ExtResource("3_45l4g")
+stream_count = 15
+stream_0 = ExtResource("6_a6gra")
+stream_1 = ExtResource("1_77dp3")
+stream_2 = ExtResource("4_eski5")
+stream_3 = ExtResource("7_a6gra")
+stream_4 = ExtResource("1_77dp3")
+stream_5 = ExtResource("3_45l4g")
+stream_6 = ExtResource("5_pdf00")
+stream_7 = ExtResource("10_45l4g")
+stream_8 = ExtResource("6_a3se8")
+stream_9 = ExtResource("5_mhym6")
+stream_10 = ExtResource("5_00tp4")
+stream_11 = ExtResource("1_ehkex")
+stream_12 = ExtResource("4_b0q6j")
+stream_13 = ExtResource("8_uty7l")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
 
@@ -108,8 +112,7 @@ data = PackedVector3Array(19.6231, 399.51178, -821.6615, -0.0061, 400, -821.6615
 [node name="Node3D" type="Node3D" unique_id=463482074]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=510721393]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1449.7705, 0, -849.5615)
-stream = SubResource("AudioStreamPlaylist_ayo7v")
+stream = SubResource("AudioStreamPlaylist_b0q6j")
 attenuation_model = 3
 unit_size = 100.0
 autoplay = true
@@ -360,8 +363,5 @@ mesh = ExtResource("20_vxl6d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipetest2/StaticBody3D" unique_id=1995445996]
 shape = SubResource("ConcavePolygonShape3D_eski5")
 
-[node name="Stage V" parent="." unique_id=1515756501 instance=ExtResource("17_4uo0j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -125.35986, 817.22394, -263.65704)
-
-[node name="RC-3" parent="." unique_id=1666083111 instance=ExtResource("17_uty7l")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -124.22639, 817.0548, -251.98811)
+[node name="Stage V" parent="." unique_id=246340299 instance=ExtResource("17_4uo0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -605.14166, 17.237762, -263.65704)

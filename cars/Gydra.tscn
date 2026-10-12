@@ -67,7 +67,7 @@ accel_curve = SubResource("Curve_8uh7m")
 tire_turn_speed = 1.0
 max_speed_kmh = 800.0
 shake_threshold_kmh = 300.0
-shake_speed = 3.0
+shake_speed = 10.0
 wheels_parent_path = NodePath(".")
 
 [node name="Node3D" type="Node3D" parent="RigidBody3D" unique_id=2139802655]

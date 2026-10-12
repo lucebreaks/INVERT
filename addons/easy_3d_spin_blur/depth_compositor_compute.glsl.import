@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://dvrxnfbxqtdet"
+path="res://.godot/imported/depth_compositor_compute.glsl-25b1bab5896258f6814597df9198aad9.res"
+
+[deps]
+
+source_file="res://addons/easy_3d_spin_blur/depth_compositor_compute.glsl"
+dest_files=["res://.godot/imported/depth_compositor_compute.glsl-25b1bab5896258f6814597df9198aad9.res"]
+
+[params]
+

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcmigiciuyqwk"
+path="res://.godot/imported/gs franc - Chase.ogg-d92ac53f36ecd87e8df0b713c12eb27e.oggvorbisstr"
+
+[deps]
+
+source_file="res://ost/gs franc - Chase.ogg"
+dest_files=["res://.godot/imported/gs franc - Chase.ogg-d92ac53f36ecd87e8df0b713c12eb27e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

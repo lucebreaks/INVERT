@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://betdjb7oi57mp"
+path="res://.godot/imported/gs franc - Sharpest steel XL.ogg-ea111f87437958a35a15845b491e5e16.oggvorbisstr"
+
+[deps]
+
+source_file="res://ost/gs franc - Sharpest steel XL.ogg"
+dest_files=["res://.godot/imported/gs franc - Sharpest steel XL.ogg-ea111f87437958a35a15845b491e5e16.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
