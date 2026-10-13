@@ -73,7 +73,6 @@ wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePat
 acceleration = -10000.0
 max_speed = 1600.0
 accel_curve = SubResource("Curve_8uh7m")
-tire_turn_speed = 1.0
 max_speed_kmh = 800.0
 shake_threshold_kmh = 300.0
 shake_speed = 10.0
@@ -170,6 +169,7 @@ transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.403, -0.030391693,
 shape = SubResource("SphereShape3D_tx3g8")
 
 [node name="Bullet" type="MeshInstance3D" parent="RigidBody3D" unique_id=1918217565]
+transform = Transform3D(1, 0, 0, 0, 1.2397826, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("6_8tvyn")
 skeleton = NodePath("../..")
 

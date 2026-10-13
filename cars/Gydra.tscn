@@ -64,7 +64,6 @@ wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePat
 acceleration = -10000.0
 max_speed = 1600.0
 accel_curve = SubResource("Curve_8uh7m")
-tire_turn_speed = 1.0
 max_speed_kmh = 800.0
 shake_threshold_kmh = 300.0
 shake_speed = 10.0

@@ -33,7 +33,7 @@ font = ExtResource("5_3x2e6")
 font_size = 130
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(8.632829, 1.8471375, 7.6064377)
+size = Vector3(8.632829, 1.419426, 7.6064377)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e2oay"]
 radius = 1.4850379
@@ -43,7 +43,8 @@ metallic = 0.9
 roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp4am"]
-metallic = 0.8
+albedo_color = Color(0.9872728, 0.8821799, 2.3102762e-06, 1)
+metallic = 0.41
 roughness = 0.66
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
@@ -63,7 +64,6 @@ wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePat
 acceleration = -10000.0
 max_speed = 1600.0
 accel_curve = SubResource("Curve_8uh7m")
-tire_turn_speed = 1.0
 max_speed_kmh = 800.0
 shake_threshold_kmh = 300.0
 shake_speed = 10.0
@@ -145,7 +145,7 @@ text = "345"
 label_settings = SubResource("LabelSettings_6ck66")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1701185897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4836273e-05, 0.022140503, -0.2582512)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4836273e-05, -0.013263702, -0.2582512)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="wheelcol1" type="CollisionShape3D" parent="RigidBody3D" unique_id=1686624260]
@@ -165,6 +165,7 @@ transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.7890549, -0.008251
 shape = SubResource("SphereShape3D_e2oay")
 
 [node name="voxtek" parent="RigidBody3D" unique_id=980192682 instance=ExtResource("6_bbnpy")]
+transform = Transform3D(0.95946246, 0, 0, 0, 0.8051496, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="RigidBody3D" unique_id=2037134250]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5658827, 0.05867672, 5.5109043)
