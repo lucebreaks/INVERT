@@ -37,6 +37,7 @@ var shake_timer: float = 0.0
 @export var min_vol_jet: float = -80
 @export var max_vol_jet: float = -50
 
+@export_group("flipping")
 
 var motor_input := 0
 var hand_break := false
@@ -217,6 +218,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if state.angular_velocity.length() > 0.1:
 		state.angular_velocity = state.angular_velocity.lerp(Vector3.ZERO, 2.0 * get_physics_process_delta_time())
 		
+
 func is_any_raycast_grounded() -> bool:
 	if not wheels_parent:
 		return false

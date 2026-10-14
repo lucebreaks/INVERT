@@ -368,4 +368,4 @@ mesh = ExtResource("20_vxl6d")
 shape = SubResource("ConcavePolygonShape3D_eski5")
 
 [node name="Bullet" parent="." unique_id=1515756501 instance=ExtResource("23_a6gra")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1324.5142, 466.01917, -629.3086)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.54274, 843.93665, -263.74207)

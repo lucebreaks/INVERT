@@ -72,6 +72,10 @@ shake_threshold_kmh = 300.0
 shake_speed = 10.0
 wheels_parent_path = NodePath(".")
 
+[node name="RayCast3D" type="RayCast3D" parent="RigidBody3D" unique_id=630708010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.027617, 0)
+target_position = Vector3(0, 3, 0)
+
 [node name="Node3D" type="Node3D" parent="RigidBody3D" unique_id=2139802655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
