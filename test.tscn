@@ -124,7 +124,8 @@ panning_strength = 0.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1358272807]
 transform = Transform3D(-0.133727, 0.517702, -0.845045, 0, 0.852704, 0.522394, 0.991018, 0.0698582, -0.11403, -13.7315, 12.9188, 0)
 shadow_enabled = true
-shadow_blur = 0.0
+shadow_bias = 3.12
+directional_shadow_split_1 = 0.209
 directional_shadow_blend_splits = true
 directional_shadow_fade_start = 0.0
 directional_shadow_max_distance = 12.4
@@ -366,5 +367,5 @@ mesh = ExtResource("20_vxl6d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipetest2/StaticBody3D" unique_id=1995445996]
 shape = SubResource("ConcavePolygonShape3D_eski5")
 
-[node name="Bullet" parent="." unique_id=299334609 instance=ExtResource("23_a6gra")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -145.54929, 880.0469, -242.41576)
+[node name="Bullet" parent="." unique_id=1515756501 instance=ExtResource("23_a6gra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1324.5142, 466.01917, -629.3086)
