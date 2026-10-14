@@ -10,11 +10,11 @@ extends RigidBody3D
 @export var tire_turn_speed := 2.0
 @export var tire_max_turn_degrees := 25
 @onready var camera = $SpringArm3D/Camera # Adjust this path to match your Camera3D node
-@export var max_speed_kmh: float = 150.0  # Speed where camera shake reaches maximum strength
-@export var shake_threshold_kmh: float = 60.0 # Speed where camera shake starts appearing
+@export var max_speed_kmh: float = 300.0  # Speed where camera shake reaches maximum strength
+@export var shake_threshold_kmh: float = 100.0 # Speed where camera shake starts appearing
 
 
-@export var max_shake_amplitude: float = 0.4
+@export var max_shake_amplitude: float = 0.2
 @export var shake_speed: float = 30.0
 
 var shake_timer: float = 0.0
@@ -28,13 +28,18 @@ var shake_timer: float = 0.0
 @onready var wheels_parent = get_node(wheels_parent_path)
 
 @onready var engine_sound: AudioStreamPlayer3D = $EngineSound
-
 @export var min_pitch: float = 0.6
 @export var max_pitch: float = 20.0
 
+@onready var jet_sound: AudioStreamPlayer3D = $JetSound
+@export var jet_min_pitch: float = 0.6
+@export var jet_max_pitch: float = 20.0
+@export var min_vol_jet: float = -80
+@export var max_vol_jet: float = -50
+
 
 var motor_input := 0
-
+var hand_break := false
 
 func _ready() -> void:
 	if shapecast:
@@ -44,6 +49,11 @@ func _ready() -> void:
 
 	
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("handbreak"):
+		hand_break = true
+	elif event.is_action_released("handbreak"):
+		hand_break = false
+		
 	if event.is_action_pressed("gas"):
 		motor_input = 1
 	elif event.is_action_released("gas"):
@@ -132,6 +142,10 @@ func _do_single_wheel_tractions(ray: RaycastWheel) -> void:
 	var tire_vel := _get_point_velocity(ray.wheel.global_position)
 	var steering_x_vel := steer_side_dir.dot(tire_vel)
 	var x_traction := 1.0
+	
+	if hand_break:
+		x_traction = 0.1
+		 
 	var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 	var x_force := -steer_side_dir * steering_x_vel * x_traction * ((mass*gravity)/4.0)
 	
@@ -219,3 +233,5 @@ func _process(delta: float) -> void:
 	var current_speed = linear_velocity.length()
 	var speed_ratio = clamp(current_speed / max_speed, 0.0, 1.0)
 	engine_sound.pitch_scale = lerp(min_pitch, max_pitch, speed_ratio)
+	jet_sound.pitch_scale = lerp(jet_min_pitch, jet_max_pitch, speed_ratio)
+	jet_sound.volume_db = lerp(min_vol_jet, max_vol_jet, current_speed*0.015)

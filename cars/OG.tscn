@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_odecp"]
 [ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_ee5r3"]
+[ext_resource type="AudioStream" uid="uid://dyepnaeke1r5j" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_eoxjo"]
 [ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="3_ju0d1"]
 [ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="4_ynaoy"]
 [ext_resource type="ArrayMesh" uid="uid://b4ypwlv8n6nxa" path="res://rollers/wrob3l rollers/OG.obj" id="7_e0hjb"]
@@ -39,7 +40,7 @@ ssao_intensity = 2.98
 ssao_detail = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(8.632829, 1.079422, 8.1689415)
+size = Vector3(8.632829, 1.079422, 7.9540997)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e0hjb"]
 radius = 1.4850379
@@ -72,6 +73,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.4712148)
 stream = ExtResource("2_ee5r3")
 volume_db = -16.706
+autoplay = true
+
+[node name="JetSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=331146763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4836273e-05, -0.0032730103, -0.43305874)
+stream = ExtResource("3_eoxjo")
+max_db = 0.5
 autoplay = true
 
 [node name="Og" type="MeshInstance3D" parent="RigidBody3D" unique_id=177384635]
@@ -118,7 +125,7 @@ script = ExtResource("4_ynaoy")
 target = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1701185897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4836273e-05, -0.0032730103, -0.54047966)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4836273e-05, -0.0032730103, -0.43305874)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="wheelcol1" type="CollisionShape3D" parent="RigidBody3D" unique_id=955854102]

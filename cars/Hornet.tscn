@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_xu3x7"]
 [ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_pnw3e"]
 [ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="3_540s2"]
+[ext_resource type="AudioStream" uid="uid://dyepnaeke1r5j" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_iukv1"]
 [ext_resource type="Environment" uid="uid://bovq8xj1kgubk" path="res://testlevel/testenvi.tres" id="4_62gsv"]
 [ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="4_e83j1"]
 [ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="5_sns85"]
@@ -76,6 +77,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.4712148)
 stream = ExtResource("2_pnw3e")
 volume_db = -16.706
+autoplay = true
+
+[node name="JetSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=79724678]
+stream = ExtResource("3_iukv1")
+max_db = 0.5
 autoplay = true
 
 [node name="SpringArm3D" type="SpringArm3D" parent="RigidBody3D" unique_id=1373773280 node_paths=PackedStringArray("target_node", "camera_node")]

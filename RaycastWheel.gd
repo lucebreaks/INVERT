@@ -7,5 +7,5 @@ class_name RaycastWheel
 @export var rest_dist := 0.0
 @export var wheel_radius := 1.5
 @export var is_motor := false
-
+@export var grip_curve : Curve
 @onready var wheel: Node3D = get_child(0)

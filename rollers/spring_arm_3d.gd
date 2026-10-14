@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	# 1. Height Stability Calculations
 	var next_x: float = lerp(global_position.x, target_node.global_position.x, follow_speed * delta)
 	var next_z: float = lerp(global_position.z, target_node.global_position.z, follow_speed * delta)
-	var desired_height: float = target_node.global_position.y + fixed_height_offset
+	var desired_height: float = target_node.global_position.y + fixed_height_offset * 0.5
 	target_global_height = lerp(target_global_height, desired_height, height_smooth_speed * delta)
 	global_position = Vector3(next_x, target_global_height, next_z)
 

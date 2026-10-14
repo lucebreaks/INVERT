@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://drb8hwb6lotcp"
+path="res://.godot/imported/INVERT_Engine103_LoMidRPM_MONO.ogg-b37a01ad8372bf6ebd636ac4e1435ee3.oggvorbisstr"
+
+[deps]
+
+source_file="res://sfx/engine noise/INVERT_Engine103_LoMidRPM_MONO.ogg"
+dest_files=["res://.godot/imported/INVERT_Engine103_LoMidRPM_MONO.ogg-b37a01ad8372bf6ebd636ac4e1435ee3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

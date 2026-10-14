@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_dl7iy"]
 [ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_62gsv"]
+[ext_resource type="AudioStream" uid="uid://dyepnaeke1r5j" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_5r6pp"]
 [ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="3_iukv1"]
 [ext_resource type="Environment" uid="uid://bovq8xj1kgubk" path="res://testlevel/testenvi.tres" id="4_e2oay"]
 [ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="4_um7o0"]
@@ -33,7 +34,7 @@ font = ExtResource("5_3x2e6")
 font_size = 130
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(8.632829, 1.419426, 7.6064377)
+size = Vector3(8.43763, 1.2818584, 7.3981915)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e2oay"]
 radius = 1.4850379
@@ -78,6 +79,11 @@ stream = ExtResource("2_62gsv")
 volume_db = -16.706
 autoplay = true
 
+[node name="JetSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=1145504494]
+stream = ExtResource("3_5r6pp")
+max_db = 0.5
+autoplay = true
+
 [node name="SpringArm3D" type="SpringArm3D" parent="RigidBody3D" unique_id=1373773280 node_paths=PackedStringArray("target_node", "camera_node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0086584, -2.209087)
 top_level = true
@@ -87,14 +93,9 @@ margin = 1.92
 script = ExtResource("3_iukv1")
 target_node = NodePath("..")
 follow_speed = 20.0
-rotation_speed = null
 fixed_height_offset = 3.3
 height_smooth_speed = 8.38
 camera_node = NodePath("Camera")
-min_fov = null
-max_fov = null
-max_speed = null
-fov_change_speed = null
 
 [node name="Camera" type="Camera3D" parent="RigidBody3D/SpringArm3D" unique_id=444824457 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
@@ -145,7 +146,7 @@ text = "345"
 label_settings = SubResource("LabelSettings_6ck66")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1701185897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4836273e-05, -0.013263702, -0.2582512)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.263)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="wheelcol1" type="CollisionShape3D" parent="RigidBody3D" unique_id=1686624260]
