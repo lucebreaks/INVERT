@@ -9,6 +9,15 @@ extends RigidBody3D
 @export var accel_curve : Curve
 @export var tire_turn_speed := 2.0
 @export var tire_max_turn_degrees := 25
+@onready var camera = $SpringArm3D/Camera # Adjust this path to match your Camera3D node
+@export var max_speed_kmh: float = 300.0  # Speed where camera shake reaches maximum strength
+@export var shake_threshold_kmh: float = 100.0 # Speed where camera shake starts appearing
+
+
+@export var max_shake_amplitude: float = 0.2
+@export var shake_speed: float = 30.0
+
+var shake_timer: float = 0.0
 
 @export_group("Aerodynamics")
 @export var downforce_coefficient: float = 2.0 
@@ -19,13 +28,18 @@ extends RigidBody3D
 @onready var wheels_parent = get_node(wheels_parent_path)
 
 @onready var engine_sound: AudioStreamPlayer3D = $EngineSound
-
 @export var min_pitch: float = 0.6
 @export var max_pitch: float = 20.0
 
+@onready var jet_sound: AudioStreamPlayer3D = $JetSound
+@export var jet_min_pitch: float = 0.6
+@export var jet_max_pitch: float = 20.0
+@export var min_vol_jet: float = -80
+@export var max_vol_jet: float = -50
+
 
 var motor_input := 0
-
+var hand_break := false
 
 func _ready() -> void:
 	if shapecast:
@@ -35,6 +49,11 @@ func _ready() -> void:
 
 	
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("handbreak"):
+		hand_break = true
+	elif event.is_action_released("handbreak"):
+		hand_break = false
+		
 	if event.is_action_pressed("gas"):
 		motor_input = 1
 	elif event.is_action_released("gas"):
@@ -74,19 +93,59 @@ func _physics_process(_delta: float) -> void:
 		pass
 
 
+	var raw_speed = linear_velocity.length()
+	var display_speed = raw_speed * 3.6 
 	if SPEEDOMETER_LABEL:
-		SPEEDOMETER_LABEL.text = str(linear_velocity.length() * 3.9)
+		SPEEDOMETER_LABEL.text = "%.0f" % display_speed
+		
+	var current_speed_kmh = raw_speed * 3.6
+	# 3. Handle Camera Shake
+	apply_high_speed_shake(current_speed_kmh, _delta)
 
+func apply_high_speed_shake(current_speed: float, delta: float) -> void:
+	if not camera:
+		return
+		
+	# If we are below the speed threshold, reset camera offset and exit
+	if current_speed < shake_threshold_kmh:
+		camera.h_offset = 0.0
+		camera.v_offset = 0.0
+		return
+		
+	# Calculate a 0.0 to 1.0 ratio of how fast we are going between threshold and max speed
+	var speed_range = max_speed_kmh - shake_threshold_kmh
+	var speed_factor = (current_speed - shake_threshold_kmh) / speed_range
+	speed_factor = clamp(speed_factor, 0.0, 1.0) # Keep it strictly between 0 and 1
+	
+	# Advance a timer to sample random noise or sine waves smoothly
+	shake_timer += delta * shake_speed
+	
+	# Generate random offsets scaled by our current speed factor
+	# Using sin/cos makes the vibration look cleaner than pure random numbers
+	var shake_x = sin(shake_timer) * max_shake_amplitude * speed_factor
+	var shake_y = cos(shake_timer * 1.5) * max_shake_amplitude * speed_factor
+	
+	# Apply the offset to the camera
+	camera.h_offset = shake_x
+	camera.v_offset = shake_y
+	
+	
 func _get_point_velocity(point: Vector3) -> Vector3:
 	return linear_velocity + angular_velocity.cross(point - global_position)
 	
 func _do_single_wheel_tractions(ray: RaycastWheel) -> void:
 	if not ray.is_colliding(): return
-	
+	for wheel in wheels:
+		wheel.force_raycast_update()
+		
 	var steer_side_dir := ray.global_basis.x
 	var tire_vel := _get_point_velocity(ray.wheel.global_position)
 	var steering_x_vel := steer_side_dir.dot(tire_vel)
 	var x_traction := 1.0
+	
+	if hand_break:
+		x_traction = 0.1
+		 
 	var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 	var x_force := -steer_side_dir * steering_x_vel * x_traction * ((mass*gravity)/4.0)
 	
@@ -174,3 +233,5 @@ func _process(delta: float) -> void:
 	var current_speed = linear_velocity.length()
 	var speed_ratio = clamp(current_speed / max_speed, 0.0, 1.0)
 	engine_sound.pitch_scale = lerp(min_pitch, max_pitch, speed_ratio)
+	jet_sound.pitch_scale = lerp(jet_min_pitch, jet_max_pitch, speed_ratio)
+	jet_sound.volume_db = lerp(min_vol_jet, max_vol_jet, current_speed*0.015)

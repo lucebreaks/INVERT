@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bskeg0hryaja3" path="res://scripts/camera_pivot.gd" id="1_k7k6g"]
 [ext_resource type="Script" uid="uid://dpu28fe2kunty" path="res://body.gd" id="2_g80cn"]
+[ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="5_k7k6g"]
 [ext_resource type="PackedScene" uid="uid://nx65f8r6v1nq" path="res://gfx/VOXTEKROLLERBODY.fbx" id="5_yys0x"]
 [ext_resource type="PackedScene" uid="uid://dfijef1d2vrso" path="res://gfx/ROLLERFRONTWHEEL.fbx" id="6_65e7y"]
+[ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="6_g80cn"]
 [ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="7_5l8li"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hoawj"]
@@ -14,6 +16,23 @@ size = Vector3(3.8759766, 1.4791565, 9.799072)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 radius = 1.4850379
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_od6b2"]
+
+[sub_resource type="Sky" id="Sky_5x7u6"]
+sky_material = SubResource("ProceduralSkyMaterial_od6b2")
+
+[sub_resource type="Environment" id="Environment_w5f43"]
+background_mode = 2
+sky = SubResource("Sky_5x7u6")
+ssr_enabled = true
+ssr_fade_in = 0.21213318
+ssr_fade_out = 1.9999827
+ssr_depth_tolerance = 0.01
+ssao_enabled = true
+ssao_radius = 5.91
+ssao_intensity = 2.98
+ssao_detail = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_6he3t"]
 font = ExtResource("7_5l8li")
@@ -28,9 +47,6 @@ font = ExtResource("7_5l8li")
 font_size = 130
 
 [node name="Node3D" type="Node3D" unique_id=1355136872]
-
-[node name="Axis" type="Node3D" parent="." unique_id=1936705706]
-script = ExtResource("1_k7k6g")
 
 [node name="body" type="VehicleBody3D" parent="." unique_id=1572640223 node_paths=PackedStringArray("SPEEDOMETER_LABEL")]
 disable_mode = 2
@@ -200,6 +216,35 @@ suspension_stiffness = 100.0
 [node name="ROLLERFRONTWHEEL" parent="body/upsidefront2" unique_id=1023918928 instance=ExtResource("6_65e7y")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
+
+[node name="Axis" type="Node3D" parent="body" unique_id=1936705706]
+script = ExtResource("1_k7k6g")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="body" unique_id=595176191 node_paths=PackedStringArray("target_node", "camera_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0086584, -2.209087)
+top_level = true
+collision_mask = 5
+spring_length = -10.0
+margin = 1.92
+script = ExtResource("5_k7k6g")
+target_node = NodePath("../Node3D")
+follow_speed = 20.0
+fixed_height_offset = 3.3
+height_smooth_speed = 8.38
+camera_node = NodePath("Camera")
+min_fov = 90.0
+max_fov = 120.0
+max_speed = 10.0
+
+[node name="Camera" type="Camera3D" parent="body/SpringArm3D" unique_id=1543758400 node_paths=PackedStringArray("target")]
+transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
+environment = SubResource("Environment_w5f43")
+doppler_tracking = 2
+fov = 90.0
+near = 0.036
+script = ExtResource("6_g80cn")
+min_fov = 90.0
+target = NodePath("../..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1641678131]
 

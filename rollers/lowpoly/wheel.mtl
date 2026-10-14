@@ -1,0 +1,32 @@
+# Blender 5.2.2 LTS MTL File: 'Artifex Fury.blend'
+# www.blender.org
+
+newmtl p058_c30bf.005
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 1
+map_Kd wheel.png
+map_d wheel.png
+
+newmtl p059_c307f.005
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 1
+map_Kd tire2.png
+map_d tire2.png
+
+newmtl p060_c2aff.005
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 1
+map_Kd tire2.png
+map_d tire2.png

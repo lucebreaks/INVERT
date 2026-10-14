@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://5gvwv2ydv83"]
+
+[ext_resource type="Script" uid="uid://2r6cojm3cub7" path="res://music_popup.gd" id="1_0fbet"]
+
+[node name="MusicPopup" type="Control" unique_id=1500493833]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.00003
+offset_top = -40.0
+offset_right = -152.00003
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(9.6, 1)
+size_flags_vertical = 8
+script = ExtResource("1_0fbet")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=911148410]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 26.099998
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=611468405]
+layout_mode = 2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://uxdlqs456g0g"
+path="res://.godot/imported/Roominsky - Asylum.ogg-14209a2926625300b7f81b2bd6679255.oggvorbisstr"
+
+[deps]
+
+source_file="res://ost/Roominsky - Asylum.ogg"
+dest_files=["res://.godot/imported/Roominsky - Asylum.ogg-14209a2926625300b7f81b2bd6679255.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

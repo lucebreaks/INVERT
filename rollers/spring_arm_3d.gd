@@ -10,9 +10,9 @@ extends SpringArm3D
 
 @export_group("Dynamic FOV")
 @export var camera_node: Camera3D      
-@export var min_fov: float = 70.0      
-@export var max_fov: float = 95.0      
-@export var max_speed: float = 30.0    
+@export var min_fov: float = 90.0      
+@export var max_fov: float = 120.0     
+@export var max_speed: float = 10.0    
 @export var fov_change_speed: float = 5.0 
 
 var noise: FastNoiseLite = FastNoiseLite.new()
@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	# 1. Height Stability Calculations
 	var next_x: float = lerp(global_position.x, target_node.global_position.x, follow_speed * delta)
 	var next_z: float = lerp(global_position.z, target_node.global_position.z, follow_speed * delta)
-	var desired_height: float = target_node.global_position.y + fixed_height_offset
+	var desired_height: float = target_node.global_position.y + fixed_height_offset * 0.5
 	target_global_height = lerp(target_global_height, desired_height, height_smooth_speed * delta)
 	global_position = Vector3(next_x, target_global_height, next_z)
 

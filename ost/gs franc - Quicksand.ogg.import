@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bwhp2bi65pfjx"
+path="res://.godot/imported/gs franc - Quicksand.ogg-e5189e324cb7a1c9135ca73f9a8b2739.oggvorbisstr"
+
+[deps]
+
+source_file="res://ost/gs franc - Quicksand.ogg"
+dest_files=["res://.godot/imported/gs franc - Quicksand.ogg-e5189e324cb7a1c9135ca73f9a8b2739.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
