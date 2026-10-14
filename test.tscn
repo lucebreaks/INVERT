@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://d08x5omh8gi6l" path="res://ost/chinesemidiboard - delta 4.wav" id="8_uty7l"]
 [ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/luce - backdraft (WIP).ogg" id="10_45l4g"]
 [ext_resource type="ArrayMesh" uid="uid://dwhufqaaypthw" path="res://New folder/pipetest.obj" id="20_vxl6d"]
-[ext_resource type="PackedScene" uid="uid://dk5uo3ecyinfb" path="res://cars/Bullet.tscn" id="23_a6gra"]
+[ext_resource type="PackedScene" uid="uid://dwofwegoql3ag" path="res://cars/Gotek.tscn" id="21_pdf00"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_b0q6j"]
 shuffle = true
@@ -367,5 +367,5 @@ mesh = ExtResource("20_vxl6d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipetest2/StaticBody3D" unique_id=1995445996]
 shape = SubResource("ConcavePolygonShape3D_eski5")
 
-[node name="Bullet" parent="." unique_id=1515756501 instance=ExtResource("23_a6gra")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.54274, 843.93665, -263.74207)
+[node name="Gotek" parent="." unique_id=1515756501 instance=ExtResource("21_pdf00")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -143.99124, 816.4956, -259.44168)
