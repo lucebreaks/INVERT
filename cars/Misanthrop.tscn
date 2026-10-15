@@ -8,7 +8,7 @@
 [ext_resource type="Environment" uid="uid://chggw4t7ipglj" path="res://camera/testenvironment.tres" id="5_65e6o"]
 [ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="6_cl2sr"]
 [ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="8_jg26n"]
-[ext_resource type="PackedScene" uid="uid://d2ltphl47ewqq" path="res://rollers/wheels/misan.fbx" id="9_0xv72"]
+[ext_resource type="ArrayMesh" uid="uid://b6crlrrmvsfeb" path="res://rollers/wheels/misan.obj" id="9_0xv72"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
 friction = 0.35
@@ -25,6 +25,18 @@ size = Vector3(8.076908, 1.005321, 7.6128836)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h0l2k"]
 radius = 1.4850379
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcb58"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_al1rl"]
+albedo_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gx4wv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjj3o"]
+metallic = 1.0
+metallic_specular = 0.7
+roughness = 0.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
 height = 1.2
@@ -69,19 +81,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008963585, -0.0018455982, -
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="wheelcol1" type="CollisionShape3D" parent="RigidBody3D" unique_id=1190630141]
-transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -3.4400363, -0.030391693, 2.7877502)
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -3.4400363, -0.030391693, 2.790625)
 shape = SubResource("SphereShape3D_h0l2k")
 
 [node name="wheelcol2" type="CollisionShape3D" parent="RigidBody3D" unique_id=1677960643]
-transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.4576328, -0.030391693, 2.7874215)
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.4576328, -0.030391693, 2.7902963)
 shape = SubResource("SphereShape3D_h0l2k")
 
 [node name="wheelcol3" type="CollisionShape3D" parent="RigidBody3D" unique_id=424747039]
-transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -3.4400363, -0.030391693, -2.804538)
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -3.4400363, -0.030391693, -2.8016632)
 shape = SubResource("SphereShape3D_h0l2k")
 
 [node name="wheelcol4" type="CollisionShape3D" parent="RigidBody3D" unique_id=1296267124]
-transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.4576328, -0.030391693, -2.804867)
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.4576328, -0.030391693, -2.8019922)
 shape = SubResource("SphereShape3D_h0l2k")
 
 [node name="Misanthrop" type="MeshInstance3D" parent="RigidBody3D" unique_id=685631340]
@@ -95,7 +107,7 @@ light_energy = 12.396
 light_volumetric_fog_energy = 5.375
 light_size = 0.274
 spot_range = 290.71
-spot_angle = 65.2
+spot_angle = 4.93
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="RigidBody3D/Misanthrop" unique_id=646900378]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.2779372, -0.143, 5.1851015)
@@ -103,7 +115,7 @@ light_energy = 12.396
 light_volumetric_fog_energy = 5.375
 light_size = 0.274
 spot_range = 290.71
-spot_angle = 65.2
+spot_angle = 4.93
 
 [node name="SpringArm3D" type="SpringArm3D" parent="RigidBody3D" unique_id=44106153 node_paths=PackedStringArray("target_node", "camera_node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0086584, -2.209087)
@@ -129,7 +141,7 @@ script = ExtResource("6_cl2sr")
 target = NodePath("../..")
 
 [node name="wheelFL" type="RayCast3D" parent="RigidBody3D" unique_id=1693070349]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.883, 0, 2.7944975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.883, 0, 2.7973723)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
@@ -139,8 +151,14 @@ spring_damping = 3000
 wheel_radius = 1.69
 is_motor = true
 
-[node name="misan" parent="RigidBody3D/wheelFL" unique_id=409320987 instance=ExtResource("9_0xv72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60800004, 0, 0)
+[node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=2035777431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.608, 0, 0)
+mesh = ExtResource("9_0xv72")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rcb58")
+surface_material_override/1 = SubResource("StandardMaterial3D_al1rl")
+surface_material_override/2 = SubResource("StandardMaterial3D_gx4wv")
+surface_material_override/3 = SubResource("StandardMaterial3D_wjj3o")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFL" unique_id=1442548222]
 process_physics_priority = -1
@@ -148,7 +166,7 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0
 shape = SubResource("CylinderShape3D_g4v7s")
 
 [node name="wheelRL" type="RayCast3D" parent="RigidBody3D" unique_id=1425667283]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.883, 0, -2.8063097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.883, 0, -2.8034348)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
@@ -158,8 +176,14 @@ spring_damping = 3000
 wheel_radius = 1.69
 is_motor = true
 
-[node name="misan" parent="RigidBody3D/wheelRL" unique_id=1215687681 instance=ExtResource("9_0xv72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.608, 0, 0)
+[node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=1760581368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60800004, 0, 0)
+mesh = ExtResource("9_0xv72")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rcb58")
+surface_material_override/1 = SubResource("StandardMaterial3D_al1rl")
+surface_material_override/2 = SubResource("StandardMaterial3D_gx4wv")
+surface_material_override/3 = SubResource("StandardMaterial3D_wjj3o")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRL" unique_id=1939323894]
 process_physics_priority = -1
@@ -167,7 +191,7 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0
 shape = SubResource("CylinderShape3D_g4v7s")
 
 [node name="wheelFR" type="RayCast3D" parent="RigidBody3D" unique_id=1400942630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8829238, 0, 2.7944975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8829238, 0, 2.7973723)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
@@ -177,8 +201,14 @@ spring_damping = 3000
 wheel_radius = 1.69
 is_motor = true
 
-[node name="misan" parent="RigidBody3D/wheelFR" unique_id=1346737346 instance=ExtResource("9_0xv72")]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.60800004, 0, 0)
+[node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=315916357]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.608, 0, 0)
+mesh = ExtResource("9_0xv72")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rcb58")
+surface_material_override/1 = SubResource("StandardMaterial3D_al1rl")
+surface_material_override/2 = SubResource("StandardMaterial3D_gx4wv")
+surface_material_override/3 = SubResource("StandardMaterial3D_wjj3o")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFR" unique_id=113828537]
 process_physics_priority = -1
@@ -187,7 +217,7 @@ shape = SubResource("CylinderShape3D_g4v7s")
 target_position = Vector3(0, 1, 0)
 
 [node name="wheelRR" type="RayCast3D" parent="RigidBody3D" unique_id=516100797]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8829238, 0, -2.8063097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8829238, 0, -2.8034348)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
@@ -197,8 +227,14 @@ spring_damping = 3000
 wheel_radius = 1.69
 is_motor = true
 
-[node name="misan" parent="RigidBody3D/wheelRR" unique_id=684851796 instance=ExtResource("9_0xv72")]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.608, 0, 0)
+[node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=261351546]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.60800004, 0, 0)
+mesh = ExtResource("9_0xv72")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rcb58")
+surface_material_override/1 = SubResource("StandardMaterial3D_al1rl")
+surface_material_override/2 = SubResource("StandardMaterial3D_gx4wv")
+surface_material_override/3 = SubResource("StandardMaterial3D_wjj3o")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRR" unique_id=571723821]
 process_physics_priority = -1

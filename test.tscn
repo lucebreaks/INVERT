@@ -21,6 +21,15 @@
 [ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/luce - backdraft (WIP).ogg" id="10_45l4g"]
 [ext_resource type="ArrayMesh" uid="uid://dwhufqaaypthw" path="res://New folder/pipetest.obj" id="20_vxl6d"]
 [ext_resource type="PackedScene" uid="uid://dwofwegoql3ag" path="res://cars/Gotek.tscn" id="21_pdf00"]
+[ext_resource type="PackedScene" uid="uid://d41f28u86vd0" path="res://cars/Misanthrop.tscn" id="22_pdf00"]
+[ext_resource type="PackedScene" uid="uid://dmfliixwqwjv7" path="res://cars/OG.tscn" id="23_15c7i"]
+[ext_resource type="PackedScene" uid="uid://btffcxddld0fr" path="res://cars/RC-3.tscn" id="24_xpeyw"]
+[ext_resource type="PackedScene" uid="uid://dk5uo3ecyinfb" path="res://cars/Bullet.tscn" id="25_dpmuy"]
+[ext_resource type="PackedScene" uid="uid://ct62217jg5cbc" path="res://cars/Gydra.tscn" id="26_rrpoi"]
+[ext_resource type="PackedScene" uid="uid://bn32dak0wxonl" path="res://cars/Hornet.tscn" id="27_34fux"]
+[ext_resource type="PackedScene" uid="uid://mxopgti16f6q" path="res://cars/Voxtek.tscn" id="28_ppv7d"]
+[ext_resource type="PackedScene" uid="uid://dujanfdcolmdp" path="res://cars/Venom.tscn" id="29_naet1"]
+[ext_resource type="PackedScene" uid="uid://d0edpcwneahdb" path="res://cars/Stage V.tscn" id="30_6qlrc"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_b0q6j"]
 shuffle = true
@@ -367,5 +376,32 @@ mesh = ExtResource("20_vxl6d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipetest2/StaticBody3D" unique_id=1995445996]
 shape = SubResource("ConcavePolygonShape3D_eski5")
 
+[node name="Bullet" parent="." unique_id=1048174179 instance=ExtResource("25_dpmuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.28772, 2.0890198, -258.9635)
+
+[node name="Misanthrop" parent="." unique_id=1843088911 instance=ExtResource("22_pdf00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.00069, 1.7272835, -258.7357)
+
 [node name="Gotek" parent="." unique_id=1515756501 instance=ExtResource("21_pdf00")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -143.99124, 816.4956, -259.44168)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.1687, 1.7621956, -258.74905)
+
+[node name="OG" parent="." unique_id=1415888544 instance=ExtResource("23_15c7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.004745, 1.6741829, -258.7395)
+
+[node name="RC-3" parent="." unique_id=2095231526 instance=ExtResource("24_xpeyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.76012, 1.6280403, -259.80518)
+
+[node name="Gydra" parent="." unique_id=844190599 instance=ExtResource("26_rrpoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.11281, 1.5302534, -258.83362)
+
+[node name="Hornet" parent="." unique_id=928263712 instance=ExtResource("27_34fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.79895, 1.3275709, -259.16223)
+
+[node name="Voxtek" parent="." unique_id=790447509 instance=ExtResource("28_ppv7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.16238, 2.1211362, -258.8846)
+
+[node name="Venom" parent="." unique_id=1326909843 instance=ExtResource("29_naet1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -190.28384, 2.0302677, -258.1626)
+
+[node name="Stage V" parent="." unique_id=652328855 instance=ExtResource("30_6qlrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.339325, 1.5819912, -258.8718)

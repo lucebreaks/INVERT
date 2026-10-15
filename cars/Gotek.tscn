@@ -35,13 +35,13 @@ font = ExtResource("8_atw5q")
 font_size = 101
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(8.43763, 1.2818584, 7.3981915)
+size = Vector3(8.43763, 1.1393123, 7.3981915)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e2oay"]
 radius = 1.4850379
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40e02"]
-albedo_color = Color(0.16233426, 0.16907158, 0.18780023, 1)
+albedo_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1toat"]
 
@@ -156,7 +156,7 @@ text = "345"
 label_settings = SubResource("LabelSettings_md4n3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1701185897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0052030087, -0.263)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="wheelcol1" type="CollisionShape3D" parent="RigidBody3D" unique_id=1686624260]
@@ -184,7 +184,7 @@ light_energy = 12.396
 light_volumetric_fog_energy = 5.375
 light_size = 0.274
 spot_range = 290.71
-spot_angle = 11.297321
+spot_angle = 4.93
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="RigidBody3D" unique_id=646900378]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5660636, 0.058440685, 5.5106463)

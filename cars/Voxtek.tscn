@@ -165,7 +165,7 @@ light_energy = 12.396
 light_volumetric_fog_energy = 5.375
 light_size = 0.274
 spot_range = 290.71
-spot_angle = 65.2
+spot_angle = 4.93
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="RigidBody3D" unique_id=646900378]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5660636, 0.058440685, 5.5106463)
@@ -173,7 +173,7 @@ light_energy = 12.396
 light_volumetric_fog_energy = 5.375
 light_size = 0.274
 spot_range = 290.71
-spot_angle = 65.2
+spot_angle = 4.93
 
 [node name="wheelFL" type="RayCast3D" parent="RigidBody3D" unique_id=1693070349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.777, 0, 2.8906698)
