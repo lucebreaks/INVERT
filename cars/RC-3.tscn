@@ -182,7 +182,7 @@ transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.4576328, -0.030391
 shape = SubResource("SphereShape3D_72yoa")
 
 [node name="rc-3" parent="RigidBody3D" unique_id=982552874 instance=ExtResource("6_md7pq")]
-transform = Transform3D(1, 0, 0, 0, 1.5424689, 0, 0, 0, 1, 0, 0, 0.558)
+transform = Transform3D(1, 0, 0, 0, 1.2448734, 0, 0, 0, 1, 0, 0, 0.558)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="RigidBody3D/rc-3" unique_id=2037134250]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.2777565, -0.14276397, 4.6273594)

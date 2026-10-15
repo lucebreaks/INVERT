@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://d41f28u86vd0"]
 
-[ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_h0l2k"]
-[ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_ullc0"]
-[ext_resource type="AudioStream" uid="uid://drb8hwb6lotcp" path="res://sfx/engine noise/INVERT_Engine103_LoMidRPM_MONO.ogg" id="3_ullc0"]
-[ext_resource type="ArrayMesh" uid="uid://bshwuh0wkodld" path="res://rollers/wrob3l rollers/Misanthrop.obj" id="4_h0l2k"]
-[ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="4_k5ani"]
-[ext_resource type="Environment" uid="uid://chggw4t7ipglj" path="res://camera/testenvironment.tres" id="5_65e6o"]
-[ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="6_cl2sr"]
-[ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="8_jg26n"]
-[ext_resource type="ArrayMesh" uid="uid://b6crlrrmvsfeb" path="res://rollers/wheels/misan.obj" id="9_0xv72"]
+[ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_irpyr"]
+[ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_df0a6"]
+[ext_resource type="AudioStream" uid="uid://drb8hwb6lotcp" path="res://sfx/engine noise/INVERT_Engine103_LoMidRPM_MONO.ogg" id="3_0n5si"]
+[ext_resource type="ArrayMesh" uid="uid://bshwuh0wkodld" path="res://rollers/wrob3l rollers/Misanthrop.obj" id="4_iequt"]
+[ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="5_6nlm4"]
+[ext_resource type="Environment" uid="uid://chggw4t7ipglj" path="res://camera/testenvironment.tres" id="6_0axio"]
+[ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="7_hmhbk"]
+[ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="8_bds6m"]
+[ext_resource type="ArrayMesh" uid="uid://b6crlrrmvsfeb" path="res://rollers/wheels/misan.obj" id="9_62e4u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
 friction = 0.35
@@ -42,14 +42,14 @@ roughness = 0.0
 height = 1.2
 radius = 1.733
 
-[node name="Misanthrop" type="Node3D" unique_id=1515756501]
+[node name="Misan" type="Node3D" unique_id=1515756501]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("wheels")]
 collision_layer = 5
 mass = 368.0
 physics_material_override = SubResource("PhysicsMaterial_yf5fn")
 gravity_scale = 4.0
-script = ExtResource("1_h0l2k")
+script = ExtResource("1_irpyr")
 wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
 acceleration = -10000.0
 max_speed = 1600.0
@@ -67,12 +67,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.6826134)
 
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=609267786]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.4712148)
-stream = ExtResource("2_ullc0")
+stream = ExtResource("2_df0a6")
 volume_db = -16.706
 autoplay = true
 
 [node name="JetSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=844557209]
-stream = ExtResource("3_ullc0")
+stream = ExtResource("3_0n5si")
 max_db = 0.5
 autoplay = true
 
@@ -98,7 +98,7 @@ shape = SubResource("SphereShape3D_h0l2k")
 
 [node name="Misanthrop" type="MeshInstance3D" parent="RigidBody3D" unique_id=685631340]
 transform = Transform3D(1, 0, 0, 0, 0.74793285, 0, 0, 0, 1, 0, 0, 0)
-mesh = ExtResource("4_h0l2k")
+mesh = ExtResource("4_iequt")
 skeleton = NodePath("../..")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="RigidBody3D/Misanthrop" unique_id=2037134250]
@@ -123,7 +123,7 @@ top_level = true
 collision_mask = 5
 spring_length = -10.0
 margin = 1.92
-script = ExtResource("4_k5ani")
+script = ExtResource("5_6nlm4")
 target_node = NodePath("../Node3D")
 follow_speed = 20.0
 fixed_height_offset = 3.3
@@ -133,11 +133,11 @@ camera_node = NodePath("Camera")
 [node name="Camera" type="Camera3D" parent="RigidBody3D/SpringArm3D" unique_id=37106502 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
 cull_mask = 524287
-environment = ExtResource("5_65e6o")
+environment = ExtResource("6_0axio")
 doppler_tracking = 2
 fov = 90.0
 near = 0.036
-script = ExtResource("6_cl2sr")
+script = ExtResource("7_hmhbk")
 target = NodePath("../..")
 
 [node name="wheelFL" type="RayCast3D" parent="RigidBody3D" unique_id=1693070349]
@@ -145,7 +145,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.883, 0, 2.7973723)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("8_jg26n")
+script = ExtResource("8_bds6m")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.69
@@ -153,7 +153,7 @@ is_motor = true
 
 [node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=2035777431]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.608, 0, 0)
-mesh = ExtResource("9_0xv72")
+mesh = ExtResource("9_62e4u")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_rcb58")
 surface_material_override/1 = SubResource("StandardMaterial3D_al1rl")
@@ -170,7 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.883, 0, -2.8034348)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("8_jg26n")
+script = ExtResource("8_bds6m")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.69
@@ -178,7 +178,7 @@ is_motor = true
 
 [node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=1760581368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60800004, 0, 0)
-mesh = ExtResource("9_0xv72")
+mesh = ExtResource("9_62e4u")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_rcb58")
 surface_material_override/1 = SubResource("StandardMaterial3D_al1rl")
@@ -195,7 +195,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8829238, 0, 2.7973723)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("8_jg26n")
+script = ExtResource("8_bds6m")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.69
@@ -203,7 +203,7 @@ is_motor = true
 
 [node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=315916357]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.608, 0, 0)
-mesh = ExtResource("9_0xv72")
+mesh = ExtResource("9_62e4u")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_rcb58")
 surface_material_override/1 = SubResource("StandardMaterial3D_al1rl")
@@ -221,7 +221,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8829238, 0, -2.8034348)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("8_jg26n")
+script = ExtResource("8_bds6m")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.69
@@ -229,7 +229,7 @@ is_motor = true
 
 [node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=261351546]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.60800004, 0, 0)
-mesh = ExtResource("9_0xv72")
+mesh = ExtResource("9_62e4u")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_rcb58")
 surface_material_override/1 = SubResource("StandardMaterial3D_al1rl")

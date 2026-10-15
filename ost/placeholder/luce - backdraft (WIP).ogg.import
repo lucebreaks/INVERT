@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bw1mcaclvsymk"
+path="res://.godot/imported/luce - backdraft (WIP).ogg-6857d4b3cdacb7d2006849b92a3af70c.oggvorbisstr"
+
+[deps]
+
+source_file="res://ost/placeholder/luce - backdraft (WIP).ogg"
+dest_files=["res://.godot/imported/luce - backdraft (WIP).ogg-6857d4b3cdacb7d2006849b92a3af70c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

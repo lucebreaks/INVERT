@@ -4,8 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://bf6wxgsm7jojd" path="res://ost/placeholder/chinesemidiboard - no mercy.wav" id="1_ehkex"]
 [ext_resource type="ArrayMesh" uid="uid://cdk1r0w34801w" path="res://gfx/testtrack01.6.obj" id="2_8uh7m"]
 [ext_resource type="ArrayMesh" uid="uid://b8yhfguxwopbq" path="res://gfx/looptrak.obj" id="3_6uqi0"]
-[ext_resource type="AudioStream" uid="uid://b0i8b4x1k5kdy" path="res://ost/Gamma_wip.mp3" id="3_45l4g"]
-[ext_resource type="AudioStream" uid="uid://fspt52rpxgev" path="res://ost/Su3-ject & Tommy Badman - Ready For This.ogg" id="4_b0q6j"]
+[ext_resource type="AudioStream" uid="uid://b0i8b4x1k5kdy" path="res://ost/placeholder/Gamma_wip.mp3" id="3_45l4g"]
+[ext_resource type="AudioStream" uid="uid://dxb1hkw8eg5j1" path="res://ost/Su3-ject & Tommy Badman - Ready For This.ogg" id="4_b0q6j"]
 [ext_resource type="AudioStream" uid="uid://dcmigiciuyqwk" path="res://ost/gs franc - Chase.ogg" id="4_eski5"]
 [ext_resource type="ArrayMesh" uid="uid://tda8v7mwebep" path="res://testlevel/Republic Loop_collscenefix.obj" id="4_ykrsh"]
 [ext_resource type="AudioStream" uid="uid://cr3ayyiipsm4y" path="res://ost/gs franc - Cure for the itch.ogg" id="5_00tp4"]
@@ -14,26 +14,20 @@
 [ext_resource type="AudioStream" uid="uid://bwhp2bi65pfjx" path="res://ost/gs franc - Quicksand.ogg" id="5_pdf00"]
 [ext_resource type="AudioStream" uid="uid://uxdlqs456g0g" path="res://ost/Roominsky - Asylum.ogg" id="6_a3se8"]
 [ext_resource type="AudioStream" uid="uid://betdjb7oi57mp" path="res://ost/gs franc - Sharpest steel XL.ogg" id="6_a6gra"]
-[ext_resource type="AudioStream" uid="uid://cv6wnms7hyd2" path="res://ost/LDOT & Skunkworx - Stress Test.ogg" id="7_a6gra"]
-[ext_resource type="AudioStream" uid="uid://bwobiifv0wobg" path="res://ost/Waiting For Zyo - G1on.mp3" id="7_eski5"]
-[ext_resource type="AudioStream" uid="uid://mnuq6utoldrx" path="res://ost/Sidewinder_wip175.mp3" id="8_pdf00"]
+[ext_resource type="AudioStream" uid="uid://cv6wnms7hyd2" path="res://ost/placeholder/LDOT & Skunkworx - Stress Test.ogg" id="7_a6gra"]
+[ext_resource type="AudioStream" uid="uid://bwobiifv0wobg" path="res://ost/placeholder/Waiting For Zyo - G1on.mp3" id="7_eski5"]
+[ext_resource type="AudioStream" uid="uid://mnuq6utoldrx" path="res://ost/placeholder/Sidewinder_wip175.mp3" id="8_pdf00"]
 [ext_resource type="AudioStream" uid="uid://d08x5omh8gi6l" path="res://ost/chinesemidiboard - delta 4.wav" id="8_uty7l"]
-[ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/luce - backdraft (WIP).ogg" id="10_45l4g"]
+[ext_resource type="AudioStream" uid="uid://cxo53fwvr7p2m" path="res://ost/Tommy Badman & Audiodsciples - 2Much.ogg" id="9_15c7i"]
+[ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/placeholder/luce - backdraft (WIP).ogg" id="10_45l4g"]
+[ext_resource type="AudioStream" uid="uid://fifdb3ftd7y0" path="res://ost/Tommy Badman & Maledicent - Spiral Vortex.ogg" id="10_xpeyw"]
+[ext_resource type="AudioStream" uid="uid://cla7gokclu788" path="res://ost/Tommy Badman - Shuffle Killer.ogg" id="11_dpmuy"]
 [ext_resource type="ArrayMesh" uid="uid://dwhufqaaypthw" path="res://New folder/pipetest.obj" id="20_vxl6d"]
-[ext_resource type="PackedScene" uid="uid://dwofwegoql3ag" path="res://cars/Gotek.tscn" id="21_pdf00"]
-[ext_resource type="PackedScene" uid="uid://d41f28u86vd0" path="res://cars/Misanthrop.tscn" id="22_pdf00"]
-[ext_resource type="PackedScene" uid="uid://dmfliixwqwjv7" path="res://cars/OG.tscn" id="23_15c7i"]
-[ext_resource type="PackedScene" uid="uid://btffcxddld0fr" path="res://cars/RC-3.tscn" id="24_xpeyw"]
-[ext_resource type="PackedScene" uid="uid://dk5uo3ecyinfb" path="res://cars/Bullet.tscn" id="25_dpmuy"]
-[ext_resource type="PackedScene" uid="uid://ct62217jg5cbc" path="res://cars/Gydra.tscn" id="26_rrpoi"]
-[ext_resource type="PackedScene" uid="uid://bn32dak0wxonl" path="res://cars/Hornet.tscn" id="27_34fux"]
-[ext_resource type="PackedScene" uid="uid://mxopgti16f6q" path="res://cars/Voxtek.tscn" id="28_ppv7d"]
-[ext_resource type="PackedScene" uid="uid://dujanfdcolmdp" path="res://cars/Venom.tscn" id="29_naet1"]
 [ext_resource type="PackedScene" uid="uid://d0edpcwneahdb" path="res://cars/Stage V.tscn" id="30_6qlrc"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_b0q6j"]
 shuffle = true
-stream_count = 16
+stream_count = 20
 stream_0 = ExtResource("6_a6gra")
 stream_1 = ExtResource("1_77dp3")
 stream_2 = ExtResource("4_eski5")
@@ -50,6 +44,10 @@ stream_12 = ExtResource("4_b0q6j")
 stream_13 = ExtResource("8_uty7l")
 stream_14 = ExtResource("7_eski5")
 stream_15 = ExtResource("8_pdf00")
+stream_16 = ExtResource("9_15c7i")
+stream_17 = ExtResource("4_b0q6j")
+stream_18 = ExtResource("10_xpeyw")
+stream_19 = ExtResource("11_dpmuy")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
 
@@ -342,7 +340,7 @@ mesh = ExtResource("3_6uqi0")
 physics_material_override = SubResource("PhysicsMaterial_x7clb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Looptrak/StaticBody3D" unique_id=446895647]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.695488e-05, 0.00037193298, 1.4781952e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.695488e-05, 0.00037002563, 1.4781952e-05)
 shape = SubResource("ConcavePolygonShape3D_0m0f1")
 
 [node name="RepublicLoopCollscenefix" type="MeshInstance3D" parent="." unique_id=1190781309]
@@ -376,32 +374,5 @@ mesh = ExtResource("20_vxl6d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipetest2/StaticBody3D" unique_id=1995445996]
 shape = SubResource("ConcavePolygonShape3D_eski5")
 
-[node name="Bullet" parent="." unique_id=1048174179 instance=ExtResource("25_dpmuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.28772, 2.0890198, -258.9635)
-
-[node name="Misanthrop" parent="." unique_id=1843088911 instance=ExtResource("22_pdf00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.00069, 1.7272835, -258.7357)
-
-[node name="Gotek" parent="." unique_id=1515756501 instance=ExtResource("21_pdf00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.1687, 1.7621956, -258.74905)
-
-[node name="OG" parent="." unique_id=1415888544 instance=ExtResource("23_15c7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.004745, 1.6741829, -258.7395)
-
-[node name="RC-3" parent="." unique_id=2095231526 instance=ExtResource("24_xpeyw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.76012, 1.6280403, -259.80518)
-
-[node name="Gydra" parent="." unique_id=844190599 instance=ExtResource("26_rrpoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.11281, 1.5302534, -258.83362)
-
-[node name="Hornet" parent="." unique_id=928263712 instance=ExtResource("27_34fux")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.79895, 1.3275709, -259.16223)
-
-[node name="Voxtek" parent="." unique_id=790447509 instance=ExtResource("28_ppv7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.16238, 2.1211362, -258.8846)
-
-[node name="Venom" parent="." unique_id=1326909843 instance=ExtResource("29_naet1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -190.28384, 2.0302677, -258.1626)
-
-[node name="Stage V" parent="." unique_id=652328855 instance=ExtResource("30_6qlrc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.339325, 1.5819912, -258.8718)
+[node name="Stage V" parent="." unique_id=1515756501 instance=ExtResource("30_6qlrc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -153.0279, 840.10614, -267.9585)
