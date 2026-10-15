@@ -27,10 +27,10 @@ var shake_timer: float = 0.0
 
 @onready var wheels_parent = get_node(wheels_parent_path)
 
+@export_group("SFX")
 @onready var engine_sound: AudioStreamPlayer3D = $EngineSound
 @export var min_pitch: float = 0.6
 @export var max_pitch: float = 20.0
-
 @onready var jet_sound: AudioStreamPlayer3D = $JetSound
 @export var jet_min_pitch: float = 0.6
 @export var jet_max_pitch: float = 20.0
@@ -39,6 +39,7 @@ var shake_timer: float = 0.0
 
 @export_group("flipping")
 
+@export_group("handbrake")
 var motor_input := 0
 var hand_break := false
 
@@ -93,7 +94,9 @@ func _physics_process(_delta: float) -> void:
 	else:
 		pass
 
+#flipping handling
 
+#speedometer setup
 	var raw_speed = linear_velocity.length()
 	var display_speed = raw_speed * 3.6 
 	if SPEEDOMETER_LABEL:
@@ -218,6 +221,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if state.angular_velocity.length() > 0.1:
 		state.angular_velocity = state.angular_velocity.lerp(Vector3.ZERO, 2.0 * get_physics_process_delta_time())
 		
+#flipped handling setup
 
 func is_any_raycast_grounded() -> bool:
 	if not wheels_parent:

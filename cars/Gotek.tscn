@@ -77,6 +77,10 @@ wheels_parent_path = NodePath(".")
 [node name="Node3D" type="Node3D" parent="RigidBody3D" unique_id=2139802655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
+[node name="RayCast3D" type="RayCast3D" parent="RigidBody3D" unique_id=1295784958]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -3, 0)
+
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=609267786]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.4712148)
 stream = ExtResource("2_atw5q")
