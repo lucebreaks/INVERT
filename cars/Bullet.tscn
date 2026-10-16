@@ -11,7 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cyijn0nvpymnd" path="res://font/JetBrainsMono-Regular.ttf" id="8_al1rl"]
 [ext_resource type="FontFile" uid="uid://cf4h2yan0ux64" path="res://font/eurostarblackextended.ttf" id="9_sl1eh"]
 [ext_resource type="PackedScene" uid="uid://cb0nm80np11um" path="res://rollers/wrob3l rollers/bulletv4.fbx" id="10_al1rl"]
-[ext_resource type="ArrayMesh" uid="uid://dp1v57wx4n2i4" path="res://rollers/wheels/Bullet.obj" id="10_tx3g8"]
+[ext_resource type="ArrayMesh" uid="uid://cska2n1vevpvi" path="res://rollers/wheels/bulletwhel.obj" id="12_al1rl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
 friction = 0.35
@@ -205,7 +205,7 @@ is_motor = true
 
 [node name="Bullet" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=1215868345]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 1.202, 0, 0)
-mesh = ExtResource("10_tx3g8")
+mesh = ExtResource("12_al1rl")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3omo0")
 surface_material_override/2 = SubResource("StandardMaterial3D_746m2")
@@ -230,7 +230,7 @@ is_motor = true
 
 [node name="Bullet" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=424147266]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 1.2019999, 0, 0)
-mesh = ExtResource("10_tx3g8")
+mesh = ExtResource("12_al1rl")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3omo0")
 surface_material_override/2 = SubResource("StandardMaterial3D_746m2")
@@ -255,7 +255,7 @@ is_motor = true
 
 [node name="Bullet" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=14021931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.202, 0, 0)
-mesh = ExtResource("10_tx3g8")
+mesh = ExtResource("12_al1rl")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3omo0")
 surface_material_override/2 = SubResource("StandardMaterial3D_746m2")
@@ -281,7 +281,7 @@ is_motor = true
 
 [node name="Bullet" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=509060404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2019999, 0, 0)
-mesh = ExtResource("10_tx3g8")
+mesh = ExtResource("12_al1rl")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3omo0")
 surface_material_override/2 = SubResource("StandardMaterial3D_746m2")
