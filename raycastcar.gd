@@ -103,33 +103,27 @@ func _physics_process(_delta: float) -> void:
 		SPEEDOMETER_LABEL.text = "%.0f" % display_speed
 		
 	var current_speed_kmh = raw_speed * 3.6
-	# 3. Handle Camera Shake
+	#Camera Shake
 	apply_high_speed_shake(current_speed_kmh, _delta)
 
 func apply_high_speed_shake(current_speed: float, delta: float) -> void:
 	if not camera:
 		return
 		
-	# If we are below the speed threshold, reset camera offset and exit
 	if current_speed < shake_threshold_kmh:
 		camera.h_offset = 0.0
 		camera.v_offset = 0.0
 		return
 		
-	# Calculate a 0.0 to 1.0 ratio of how fast we are going between threshold and max speed
 	var speed_range = max_speed_kmh - shake_threshold_kmh
 	var speed_factor = (current_speed - shake_threshold_kmh) / speed_range
 	speed_factor = clamp(speed_factor, 0.0, 1.0) # Keep it strictly between 0 and 1
-	
-	# Advance a timer to sample random noise or sine waves smoothly
+
 	shake_timer += delta * shake_speed
 	
-	# Generate random offsets scaled by our current speed factor
-	# Using sin/cos makes the vibration look cleaner than pure random numbers
 	var shake_x = sin(shake_timer) * max_shake_amplitude * speed_factor
 	var shake_y = cos(shake_timer * 1.5) * max_shake_amplitude * speed_factor
 	
-	# Apply the offset to the camera
 	camera.h_offset = shake_x
 	camera.v_offset = shake_y
 	
@@ -222,6 +216,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		state.angular_velocity = state.angular_velocity.lerp(Vector3.ZERO, 2.0 * get_physics_process_delta_time())
 		
 #flipped handling setup
+
+
+
 
 func is_any_raycast_grounded() -> bool:
 	if not wheels_parent:
