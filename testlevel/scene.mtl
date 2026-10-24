@@ -1,0 +1,62 @@
+newmtl page_21
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+d 1
+illum 1
+map_Kd texture-21.png
+map_d texture-21.png
+
+newmtl page_18
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+d 1
+illum 1
+map_Kd texture-18.png
+map_d texture-18.png
+
+newmtl page_19
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+d 1
+illum 1
+map_Kd texture-19.png
+map_d texture-19.png
+
+newmtl page_17
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+d 1
+illum 1
+map_Kd texture-17.png
+map_d texture-17.png
+
+newmtl page_23
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+d 1
+illum 1
+map_Kd texture-23.png
+map_d texture-23.png
+
+newmtl page_24
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+d 1
+illum 1
+map_Kd texture-24.png
+map_d texture-24.png
+
+newmtl page_12
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+d 1
+illum 1
+map_Kd texture-12.png
+map_d texture-12.png

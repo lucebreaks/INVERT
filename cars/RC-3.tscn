@@ -213,7 +213,7 @@ collision_mask = 5
 script = ExtResource("10_kagiu")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 grip_curve = SubResource("Curve_eski5")
 
@@ -238,7 +238,7 @@ collision_mask = 5
 script = ExtResource("10_kagiu")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 grip_curve = SubResource("Curve_eski5")
 
@@ -263,7 +263,7 @@ collision_mask = 5
 script = ExtResource("10_kagiu")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 grip_curve = SubResource("Curve_eski5")
 
@@ -289,7 +289,7 @@ collision_mask = 5
 script = ExtResource("10_kagiu")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 grip_curve = SubResource("Curve_eski5")
 

@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="7_hmhbk"]
 [ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="8_bds6m"]
 [ext_resource type="ArrayMesh" uid="uid://b6crlrrmvsfeb" path="res://rollers/wheels/misan.obj" id="9_62e4u"]
+[ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="10_iequt"]
+[ext_resource type="FontFile" uid="uid://cyijn0nvpymnd" path="res://font/JetBrainsMono-Regular.ttf" id="11_6nlm4"]
+[ext_resource type="FontFile" uid="uid://cf4h2yan0ux64" path="res://font/eurostarblackextended.ttf" id="12_0axio"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
 friction = 0.35
@@ -42,14 +45,27 @@ roughness = 0.0
 height = 1.2
 radius = 1.733
 
+[sub_resource type="LabelSettings" id="LabelSettings_hmhbk"]
+font = ExtResource("10_iequt")
+font_size = 130
+
+[sub_resource type="LabelSettings" id="LabelSettings_bds6m"]
+font = ExtResource("11_6nlm4")
+font_size = 37
+
+[sub_resource type="LabelSettings" id="LabelSettings_62e4u"]
+font = ExtResource("12_0axio")
+font_size = 101
+
 [node name="Misan" type="Node3D" unique_id=1515756501]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("wheels")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("SPEEDOMETER_LABEL", "wheels")]
 collision_layer = 5
 mass = 368.0
 physics_material_override = SubResource("PhysicsMaterial_yf5fn")
 gravity_scale = 4.0
 script = ExtResource("1_irpyr")
+SPEEDOMETER_LABEL = NodePath("CanvasLayer/Control/Speedo_counter")
 wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
 acceleration = -10000.0
 max_speed = 1600.0
@@ -148,7 +164,7 @@ collision_mask = 5
 script = ExtResource("8_bds6m")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=2035777431]
@@ -173,7 +189,7 @@ collision_mask = 5
 script = ExtResource("8_bds6m")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=1760581368]
@@ -198,7 +214,7 @@ collision_mask = 5
 script = ExtResource("8_bds6m")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=315916357]
@@ -224,7 +240,7 @@ collision_mask = 5
 script = ExtResource("8_bds6m")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="Misan" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=261351546]
@@ -241,3 +257,41 @@ process_physics_priority = -1
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_g4v7s")
 target_position = Vector3(0, 1, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="RigidBody3D" unique_id=655049481]
+
+[node name="Control" type="Control" parent="RigidBody3D/CanvasLayer" unique_id=926163966]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="RigidBody3D/CanvasLayer/Control" unique_id=213127328]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 530.0
+offset_right = 327.0
+offset_bottom = 661.0
+text = "( ) ( )"
+label_settings = SubResource("LabelSettings_hmhbk")
+
+[node name="kph" type="Label" parent="RigidBody3D/CanvasLayer/Control" unique_id=1672327941]
+layout_mode = 0
+offset_left = 1057.0
+offset_top = 602.0
+offset_right = 1147.0
+offset_bottom = 656.0
+text = "km/h"
+label_settings = SubResource("LabelSettings_bds6m")
+
+[node name="Speedo_counter" type="Label" parent="RigidBody3D/CanvasLayer/Control" unique_id=2106767044]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 501.0
+offset_right = 1225.0
+offset_bottom = 657.0
+text = "345"
+label_settings = SubResource("LabelSettings_62e4u")

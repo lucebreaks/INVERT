@@ -139,7 +139,7 @@ collision_mask = 5
 script = ExtResource("7_0aopf")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="VenWheelfinal" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=395305070]
@@ -163,7 +163,7 @@ collision_mask = 5
 script = ExtResource("7_0aopf")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="VenWheelfinal" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=1327354648]
@@ -187,7 +187,7 @@ collision_mask = 5
 script = ExtResource("7_0aopf")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="VenWheelfinal" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=1818485522]
@@ -212,7 +212,7 @@ collision_mask = 5
 script = ExtResource("7_0aopf")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="VenWheelfinal" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=1467620912]

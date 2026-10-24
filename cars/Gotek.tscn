@@ -202,7 +202,7 @@ collision_mask = 5
 script = ExtResource("9_isda8")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="Gotek" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=979490525]
@@ -227,7 +227,7 @@ collision_mask = 5
 script = ExtResource("9_isda8")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="Gotek" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=1539918710]
@@ -252,7 +252,7 @@ collision_mask = 5
 script = ExtResource("9_isda8")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="Gotek" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=460290059]
@@ -278,7 +278,7 @@ collision_mask = 5
 script = ExtResource("9_isda8")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="Gotek" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=956859175]
