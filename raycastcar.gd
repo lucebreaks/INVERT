@@ -212,7 +212,7 @@ func _do_single_wheel_suspension(ray: RaycastWheel) -> void:
 		var spring_len := ray.global_position.distance_to(contact) - ray.wheel_radius
 		var offset := ray.rest_dist - spring_len
 		
-		ray.wheel.position.y = -spring_len
+		ray.wheel.position.y = -spring_len*orientation ##ORIENTATION ADDED HERE
 		
 		var spring_force := ray.spring_strength * offset
 		
