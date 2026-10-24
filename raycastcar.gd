@@ -39,6 +39,8 @@ var shake_timer: float = 0.0
 
 @export_group("flipping")
 @export var orientation: int = 1
+@export var up_ray: RayCast3D
+@export var down_ray: RayCast3D
 
 @export_group("handbrake")
 var motor_input := 0
@@ -82,10 +84,25 @@ func _basic_steering_rotation(delta: float) -> void:
 		
 		
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_down"):
+	#TREK WUZ HERE!!!!!!!!
+	#Sets orientation based on up/down rays.
+	#Force them to update, probabuly unnescessary but whatever.
+	up_ray.force_raycast_update()
+	down_ray.force_raycast_update()
+	var downDist = 100.0 #Initialize distances at total length (adjust if needed for >100m distances)
+	var upDist = 100.0
+	if down_ray.is_colliding():
+		downDist = global_position.distance_to(down_ray.get_collision_point())
+	if up_ray.is_colliding():
+		upDist = global_position.distance_to(up_ray.get_collision_point())
+	
+	#uses two if statements instead of just an else because if they're the same then don't bother adjusting orientation.
+	if upDist < downDist:
 		orientation = -1
-	if Input.is_action_just_pressed("ui_up"):
+	elif downDist < upDist:
 		orientation = 1
+		
+	
 	_basic_steering_rotation(_delta)
 	for wheel in wheels:
 		if orientation > 0:
