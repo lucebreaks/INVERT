@@ -38,6 +38,7 @@ var shake_timer: float = 0.0
 @export var max_vol_jet: float = -50
 
 @export_group("flipping")
+@export var orientation: int = 1
 
 @export_group("handbrake")
 var motor_input := 0
@@ -68,7 +69,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 
 func _basic_steering_rotation(delta: float) -> void:
-	var turn_input := Input.get_axis("right", "left") * tire_turn_speed
+	var turn_input := Input.get_axis("right", "left") * tire_turn_speed * orientation ##ADDED ORIENTATION HERE
 	
 	if turn_input:
 		$wheelFL.rotation.y = clampf($wheelFL.rotation.y + turn_input * delta,
@@ -81,8 +82,16 @@ func _basic_steering_rotation(delta: float) -> void:
 		
 		
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_down"):
+		orientation = -1
+	if Input.is_action_just_pressed("ui_up"):
+		orientation = 1
 	_basic_steering_rotation(_delta)
 	for wheel in wheels:
+		if orientation > 0:
+			wheel.target_position = Vector3.DOWN*1.835
+		elif orientation < 0:
+			wheel.target_position = Vector3.UP*1.835
 		wheel.force_raycast_update()
 		_do_single_wheel_suspension(wheel)
 		_do_single_wheel_acceleration(wheel)
@@ -90,7 +99,7 @@ func _physics_process(_delta: float) -> void:
 		
 	if is_any_raycast_grounded():
 		var down_vector = -global_transform.basis.y
-		apply_central_force(down_vector * ground_downforce)
+		apply_central_force(down_vector * ground_downforce*orientation) ##ADDED ORIENTATION HERE
 	else:
 		pass
 
@@ -182,7 +191,7 @@ func _do_single_wheel_acceleration(ray: RaycastWheel) -> void:
 func _do_single_wheel_suspension(ray: RaycastWheel) -> void:
 	if ray.is_colliding():
 		var contact := ray.get_collision_point()
-		var spring_up_dir := ray.global_transform.basis.y
+		var spring_up_dir := ray.global_transform.basis.y*orientation ##ORIENTATION ADDED HERE
 		var spring_len := ray.global_position.distance_to(contact) - ray.wheel_radius
 		var offset := ray.rest_dist - spring_len
 		
@@ -195,10 +204,13 @@ func _do_single_wheel_suspension(ray: RaycastWheel) -> void:
 		var spring_damp_force := ray.spring_damping * relative_vel
 		
 		var force_vector := (spring_force - spring_damp_force) * spring_up_dir
+		#force_vector += Vector3.DOWN*get_gravity()*100
 		
 		contact = ray.wheel.global_position
 		var force_pos_offset := contact - global_position
-		apply_force(force_vector, force_pos_offset)
+		if not Input.is_action_pressed("ui_accept"):
+			apply_force(force_vector, force_pos_offset)
+		DebugDraw3D.draw_line(global_position+force_pos_offset,global_position+force_pos_offset+(force_vector*0.1),Color.RED)
 
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
@@ -207,8 +219,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if forward_speed > 1.0:
 		var downforce_amount: float = downforce_coefficient * (forward_speed * forward_speed)
 		downforce_amount = clamp(downforce_amount, 0.0, max_downforce)
+		#print(downforce_amount)
 		
-		var local_down_vector: Vector3 = -global_transform.basis.y
+		var local_down_vector: Vector3 = -global_transform.basis.y * orientation ##ORIENTATION ADDED HERE
 
 		state.apply_central_force(local_down_vector * downforce_amount)
 
