@@ -59,7 +59,7 @@ radius = 1.733
 
 [node name="Bullet" type="Node3D" unique_id=1515756501]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("SPEEDOMETER_LABEL", "wheels")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("SPEEDOMETER_LABEL", "wheels", "up_ray", "down_ray")]
 collision_layer = 5
 mass = 370.0
 physics_material_override = SubResource("PhysicsMaterial_yf5fn")
@@ -74,6 +74,8 @@ max_speed_kmh = 800.0
 shake_threshold_kmh = 300.0
 shake_speed = 10.0
 wheels_parent_path = NodePath(".")
+up_ray = NodePath("UpCast")
+down_ray = NodePath("DownCast")
 
 [node name="RayCast3D" type="RayCast3D" parent="RigidBody3D" unique_id=630708010]
 target_position = Vector3(0, 3, 0)
@@ -293,3 +295,13 @@ process_physics_priority = -1
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_g4v7s")
 target_position = Vector3(0, 1, 0)
+
+[node name="UpCast" type="RayCast3D" parent="RigidBody3D" unique_id=1429197442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1553674, 0)
+target_position = Vector3(0, 100, 0)
+hit_from_inside = true
+
+[node name="DownCast" type="RayCast3D" parent="RigidBody3D" unique_id=1291836459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.155, 0)
+target_position = Vector3(0, -100, 0)
+hit_from_inside = true

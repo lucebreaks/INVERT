@@ -113,13 +113,12 @@ func _physics_process(_delta: float) -> void:
 		_do_single_wheel_suspension(wheel)
 		_do_single_wheel_acceleration(wheel)
 		_do_single_wheel_tractions(wheel)
-		
+
 	if is_any_raycast_grounded():
 		var down_vector = -global_transform.basis.y
 		apply_central_force(down_vector * ground_downforce*orientation) ##ADDED ORIENTATION HERE
 	else:
 		pass
-
 #flipping handling
 
 #speedometer setup
@@ -182,6 +181,7 @@ func _do_single_wheel_tractions(ray: RaycastWheel) -> void:
 	apply_force(x_force, force_pos)
 	apply_force(z_force, force_pos)
 
+
 func _do_single_wheel_acceleration(ray: RaycastWheel) -> void:
 	var forward_dir := -ray.global_basis.z
 	var vel := forward_dir.dot(linear_velocity)
@@ -227,8 +227,10 @@ func _do_single_wheel_suspension(ray: RaycastWheel) -> void:
 		var force_pos_offset := contact - global_position
 		if not Input.is_action_pressed("ui_accept"):
 			apply_force(force_vector, force_pos_offset)
-		DebugDraw3D.draw_line(global_position+force_pos_offset,global_position+force_pos_offset+(force_vector*0.1),Color.RED)
+		#DebugDraw3D.draw_line(global_position+force_pos_offset,global_position+force_pos_offset+(force_vector*0.1),Color.RED)
 
+		ray.wheel.position.y = -spring_len*orientation
+		
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	var forward_speed: float = linear_velocity.length()
