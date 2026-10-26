@@ -4,9 +4,9 @@
 [ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_pnw3e"]
 [ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="3_540s2"]
 [ext_resource type="AudioStream" uid="uid://bd22hraelmxse" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_iukv1"]
-[ext_resource type="Environment" uid="uid://bovq8xj1kgubk" path="res://testlevel/testenvi.tres" id="4_62gsv"]
 [ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="4_e83j1"]
 [ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="5_sns85"]
+[ext_resource type="Environment" uid="uid://chggw4t7ipglj" path="res://camera/testenvironment.tres" id="5_um7o0"]
 [ext_resource type="ArrayMesh" uid="uid://di4eu5wtndmlr" path="res://rollers/wrob3l rollers/Hornet.obj" id="6_bbnpy"]
 [ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="10_dsalt"]
 [ext_resource type="ArrayMesh" uid="uid://dwfmhquppsw2" path="res://rollers/wheels/dragged.obj" id="10_um7o0"]
@@ -106,7 +106,7 @@ camera_node = NodePath("Camera")
 [node name="Camera" type="Camera3D" parent="RigidBody3D/SpringArm3D" unique_id=444824457 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
 cull_mask = 524287
-environment = ExtResource("4_62gsv")
+environment = ExtResource("5_um7o0")
 doppler_tracking = 2
 fov = 90.0
 near = 0.036

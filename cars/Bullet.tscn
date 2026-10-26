@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="3_0gmro"]
 [ext_resource type="AudioStream" uid="uid://bd22hraelmxse" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_tx3g8"]
 [ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="4_al1rl"]
-[ext_resource type="Environment" uid="uid://bovq8xj1kgubk" path="res://testlevel/testenvi.tres" id="4_rbo1q"]
+[ext_resource type="Environment" uid="uid://chggw4t7ipglj" path="res://camera/testenvironment.tres" id="5_al1rl"]
 [ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="5_sl1eh"]
 [ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="7_bwagt"]
 [ext_resource type="FontFile" uid="uid://cyijn0nvpymnd" path="res://font/JetBrainsMono-Regular.ttf" id="8_al1rl"]
@@ -110,7 +110,7 @@ camera_node = NodePath("Camera")
 [node name="Camera" type="Camera3D" parent="RigidBody3D/SpringArm3D" unique_id=444824457 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
 cull_mask = 524287
-environment = ExtResource("4_rbo1q")
+environment = ExtResource("5_al1rl")
 doppler_tracking = 2
 fov = 90.0
 near = 0.036

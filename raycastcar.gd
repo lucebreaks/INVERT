@@ -5,6 +5,7 @@ extends RigidBody3D
 @export var SPEEDOMETER_LABEL: Label
 @export var wheels: Array[RaycastWheel]
 @export var acceleration := -600.0
+@export var reverse := 200.0
 @export var max_speed := 20.0
 @export var accel_curve : Curve
 @export var tire_turn_speed := 2.0
@@ -185,7 +186,7 @@ func _do_single_wheel_tractions(ray: RaycastWheel) -> void:
 func _do_single_wheel_acceleration(ray: RaycastWheel) -> void:
 	var forward_dir := -ray.global_basis.z
 	var vel := forward_dir.dot(linear_velocity)
-	ray.wheel.rotate_x((-vel * get_process_delta_time())/ray.wheel_radius)
+	ray.wheel.rotate_x((-vel * get_process_delta_time()) * 0.5 * PI * ray.wheel_radius)
 	
 		
 	if ray.is_colliding() and ray.is_motor:
