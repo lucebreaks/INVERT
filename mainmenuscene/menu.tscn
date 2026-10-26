@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://ci4sik4hsjw3j"]
+
+[ext_resource type="AudioStream" uid="uid://drlbb54jc13yq" path="res://mainmenuscene/music/partitiontest1.ogg" id="1_b1naj"]
+[ext_resource type="ArrayMesh" uid="uid://x7jp7mh4i51g" path="res://mainmenuscene/items/metalheart.obj" id="3_7ytac"]
+[ext_resource type="FontFile" uid="uid://c0yscp1vw731t" path="res://mainmenuscene/fonts/Neuropol X Rg.otf" id="4_8qc6w"]
+[ext_resource type="Texture2D" uid="uid://dcqlsxujc1yrj" path="res://mainmenuscene/logo/INVERTRSTRWHITE.png" id="4_8sx1j"]
+[ext_resource type="Script" uid="uid://ho0past3ig8t" path="res://mainmenuscene/node_3d_2.gd" id="4_tyh3s"]
+[ext_resource type="FontFile" uid="uid://cf4h2yan0ux64" path="res://font/eurostarblackextended.ttf" id="6_7ytac"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pj8rb"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+albedo_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+metallic = 0.73
+metallic_specular = 0.7
+roughness = 0.18
+emission_enabled = true
+emission = Color(0.40069774, 0.40069774, 0.40069768, 1)
+emission_energy_multiplier = 6.16
+rim_enabled = true
+rim_tint = 0.17
+clearcoat_enabled = true
+clearcoat_roughness = 0.08
+anisotropy_enabled = true
+anisotropy = 0.59
+ao_light_affect = 0.75
+heightmap_enabled = true
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.78
+backlight_enabled = true
+refraction_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("4_8qc6w")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_eu6lg"]
+font = ExtResource("4_8qc6w")
+font_size = 40
+font_color = Color(0.5489626, 0.5489626, 0.54896253, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+font = ExtResource("6_7ytac")
+font_size = 20
+
+[node name="Menu" type="Node3D" unique_id=1414396320]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1986343214]
+transform = Transform3D(-0.13372703, 0.5177021, -0.8450453, 0, 0.85270417, 0.5223941, 0.99101824, 0.069858216, -0.114029594, -13.7315, 12.9188, 0)
+shadow_enabled = true
+shadow_bias = 3.12
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=949951062]
+stream = ExtResource("1_b1naj")
+attenuation_model = 3
+autoplay = true
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=1285097932]
+transform = Transform3D(0.92962354, 0, -0.36851034, -0.104034655, 0.95932263, -0.26244327, 0.35352042, 0.28231126, 0.8918092, -1288.5621, -261.16306, 0.68349576)
+script = ExtResource("4_tyh3s")
+rotation_speed = Vector3(0, 0, 5)
+
+[node name="Menumetal" type="MeshInstance3D" parent="Node3D2" unique_id=267302851]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
+mesh = ExtResource("3_7ytac")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_pj8rb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1918877024]
+transform = Transform3D(-0.0003496911, -8000, 0, 8000, -0.0003496911, 0, 0, 0, 8000, 637.0041, 0, 0)
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=874648602]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1867.9696, 1.9849367, 60.804657)
+
+[node name="Invertrstrwhite" type="Sprite2D" parent="." unique_id=101884016]
+position = Vector2(575.99994, 324)
+scale = Vector2(0.5999999, 0.59999996)
+texture = ExtResource("4_8sx1j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=154188193]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1895251087]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=766154300]
+visible = false
+offset_left = 792.0
+offset_top = 152.0
+offset_right = 1103.0
+offset_bottom = 206.0
+text = "[campaign]"
+label_settings = SubResource("LabelSettings_g4v7s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=212945265]
+visible = false
+offset_left = 792.0
+offset_top = 208.0
+offset_right = 1022.0
+offset_bottom = 262.0
+text = "[league]"
+label_settings = SubResource("LabelSettings_g4v7s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="CanvasLayer" unique_id=1736687310]
+visible = false
+offset_left = 792.0
+offset_top = 264.0
+offset_right = 1116.0
+offset_bottom = 318.0
+text = "[quick race]"
+label_settings = SubResource("LabelSettings_g4v7s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="CanvasLayer" unique_id=416171797]
+visible = false
+offset_left = 792.0
+offset_top = 320.0
+offset_right = 1136.0
+offset_bottom = 374.0
+text = "[multiplayer]"
+label_settings = SubResource("LabelSettings_eu6lg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="CanvasLayer" unique_id=1728490811]
+visible = false
+offset_left = 792.0
+offset_top = 376.0
+offset_right = 1042.0
+offset_bottom = 430.0
+text = "[options]"
+label_settings = SubResource("LabelSettings_g4v7s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label6" type="Label" parent="CanvasLayer" unique_id=1097007511]
+visible = false
+offset_left = 792.0
+offset_top = 432.0
+offset_right = 1033.0
+offset_bottom = 486.0
+text = "[quit]"
+label_settings = SubResource("LabelSettings_g4v7s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label7" type="Label" parent="CanvasLayer" unique_id=1195009536]
+offset_left = 4.0
+offset_right = 136.0
+offset_bottom = 31.0
+text = "breakbeat"
+label_settings = SubResource("LabelSettings_yf5fn")
+metadata/_edit_use_anchors_ = true

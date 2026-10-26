@@ -52,7 +52,7 @@ radius = 1.733
 
 [node name="Gydra" type="Node3D" unique_id=1515756501]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("SPEEDOMETER_LABEL", "wheels")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("SPEEDOMETER_LABEL", "wheels", "up_ray", "down_ray")]
 collision_layer = 5
 mass = 370.0
 physics_material_override = SubResource("PhysicsMaterial_yf5fn")
@@ -67,6 +67,18 @@ max_speed_kmh = 800.0
 shake_threshold_kmh = 300.0
 shake_speed = 10.0
 wheels_parent_path = NodePath(".")
+up_ray = NodePath("UpCast")
+down_ray = NodePath("DownCast")
+
+[node name="UpCast" type="RayCast3D" parent="RigidBody3D" unique_id=1610583353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1553674, 0)
+target_position = Vector3(0, 100, 0)
+hit_from_inside = true
+
+[node name="DownCast" type="RayCast3D" parent="RigidBody3D" unique_id=658426903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.155, 0)
+target_position = Vector3(0, -100, 0)
+hit_from_inside = true
 
 [node name="Node3D" type="Node3D" parent="RigidBody3D" unique_id=2139802655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
@@ -181,7 +193,7 @@ light_energy = 12.396
 light_volumetric_fog_energy = 5.375
 light_size = 0.274
 spot_range = 290.71
-spot_angle = 65.2
+spot_angle = 4.93
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="RigidBody3D/Gydra" unique_id=646900378]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.43, 0, 4.7372327)
@@ -189,7 +201,7 @@ light_energy = 12.396
 light_volumetric_fog_energy = 5.375
 light_size = 0.274
 spot_range = 290.71
-spot_angle = 65.2
+spot_angle = 4.93
 
 [node name="wheelFL" type="RayCast3D" parent="RigidBody3D" unique_id=1693070349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.777, 0, 2.8906698)
@@ -199,7 +211,7 @@ collision_mask = 5
 script = ExtResource("9_d8ssg")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="gydra" parent="RigidBody3D/wheelFL" unique_id=1153112833 instance=ExtResource("10_nvto1")]
@@ -218,7 +230,7 @@ collision_mask = 5
 script = ExtResource("9_d8ssg")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="gydra" parent="RigidBody3D/wheelRL" unique_id=284806172 instance=ExtResource("10_nvto1")]
@@ -237,7 +249,7 @@ collision_mask = 5
 script = ExtResource("9_d8ssg")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="gydra" parent="RigidBody3D/wheelFR" unique_id=899463355 instance=ExtResource("10_nvto1")]
@@ -257,7 +269,7 @@ collision_mask = 5
 script = ExtResource("9_d8ssg")
 spring_strength = 50000.0
 spring_damping = 3000
-wheel_radius = 1.69
+wheel_radius = 1.5550000000000002
 is_motor = true
 
 [node name="gydra" parent="RigidBody3D/wheelRR" unique_id=1020413075 instance=ExtResource("10_nvto1")]

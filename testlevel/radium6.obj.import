@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cfsjqmhmtok77"
+path="res://.godot/imported/radium6.obj-483e2db9674223852480c99ef32e2db5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/radium6.obj-483e2db9674223852480c99ef32e2db5.mesh"]
+
+source_file="res://testlevel/radium6.obj"
+dest_files=["res://.godot/imported/radium6.obj-483e2db9674223852480c99ef32e2db5.mesh", "res://.godot/imported/radium6.obj-483e2db9674223852480c99ef32e2db5.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
