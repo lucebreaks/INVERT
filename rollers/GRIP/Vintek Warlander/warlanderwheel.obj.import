@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://q6p76rvil80q"
+path="res://.godot/imported/warlanderwheel.obj-9891afd725bc674d7954727931021875.mesh"
+
+[deps]
+
+files=["res://.godot/imported/warlanderwheel.obj-9891afd725bc674d7954727931021875.mesh"]
+
+source_file="res://rollers/GRIP/Vintek Warlander/warlanderwheel.obj"
+dest_files=["res://.godot/imported/warlanderwheel.obj-9891afd725bc674d7954727931021875.mesh", "res://.godot/imported/warlanderwheel.obj-9891afd725bc674d7954727931021875.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

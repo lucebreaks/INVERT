@@ -2,7 +2,6 @@
 
 [ext_resource type="ArrayMesh" uid="uid://dg67fp6pes777" path="res://testlevel/helix1.obj" id="1_n8xkj"]
 [ext_resource type="AudioStream" uid="uid://betdjb7oi57mp" path="res://ost/gs franc - Sharpest steel XL.ogg" id="2_nh0li"]
-[ext_resource type="Texture2D" uid="uid://v8i6pf6o7c0n" path="res://testlevel/MonumentPark_conc10.png" id="2_w62p3"]
 [ext_resource type="AudioStream" uid="uid://c0hh3yv5xbyte" path="res://ost/placeholder/chinesemidiboard - blade fury.wav" id="3_w62p3"]
 [ext_resource type="AudioStream" uid="uid://cr3ayyiipsm4y" path="res://ost/gs franc - Cure for the itch.ogg" id="4_7e7iv"]
 [ext_resource type="AudioStream" uid="uid://bf6wxgsm7jojd" path="res://ost/placeholder/chinesemidiboard - no mercy.wav" id="5_6wwkt"]
@@ -20,10 +19,9 @@
 [ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/placeholder/luce - backdraft (WIP).ogg" id="17_nux3w"]
 [ext_resource type="AudioStream" uid="uid://uxdlqs456g0g" path="res://ost/Roominsky - Asylum.ogg" id="18_g7gk3"]
 [ext_resource type="AudioStream" uid="uid://qcsbhcgsqshj" path="res://ost/Roominsky - Abyss.ogg" id="19_40kf8"]
-[ext_resource type="PackedScene" uid="uid://dwofwegoql3ag" path="res://cars/Gotek.tscn" id="21_nh0li"]
+[ext_resource type="PackedScene" uid="uid://bf2pf4055nuk8" path="res://cars/VintekWarlander.tscn" id="20_n8xkj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0opeb"]
-albedo_texture = ExtResource("2_w62p3")
 uv1_scale = Vector3(-2.6, -2.6, -2.6)
 uv1_triplanar = true
 
@@ -78,5 +76,5 @@ transform = Transform3D(-0.13372703, 0.5177021, -0.8450453, 0, 0.85270417, 0.522
 shadow_enabled = true
 shadow_bias = 3.12
 
-[node name="Gotek" parent="." unique_id=1515756501 instance=ExtResource("21_nh0li")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.928913, 32.81192, 15.930887)
+[node name="Vintek Warlander" parent="." unique_id=1515756501 instance=ExtResource("20_n8xkj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.555214, 15.159706, 382.94394)
