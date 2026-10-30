@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/placeholder/luce - backdraft (WIP).ogg" id="17_nux3w"]
 [ext_resource type="AudioStream" uid="uid://uxdlqs456g0g" path="res://ost/Roominsky - Asylum.ogg" id="18_g7gk3"]
 [ext_resource type="AudioStream" uid="uid://qcsbhcgsqshj" path="res://ost/Roominsky - Abyss.ogg" id="19_40kf8"]
-[ext_resource type="PackedScene" uid="uid://bf2pf4055nuk8" path="res://cars/VintekWarlander.tscn" id="20_n8xkj"]
+[ext_resource type="PackedScene" uid="uid://cxw7bapvt6cav" path="res://cars/RC-3.tscn" id="20_n8xkj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0opeb"]
 uv1_scale = Vector3(-2.6, -2.6, -2.6)
@@ -52,6 +52,13 @@ stream_17 = ExtResource("6_hg2oq")
 stream_18 = ExtResource("11_kirhu")
 stream_19 = ExtResource("12_52ybu")
 
+[sub_resource type="Curve3D" id="Curve3D_n8xkj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -22.92749, -27.81778, -157.84784, 0, 0, 0, 0, 0, 0, -59.44429, -30.610321, -298.1867),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
 [node name="helix" type="Node3D" unique_id=187429282]
 
 [node name="Helix1" type="MeshInstance3D" parent="." unique_id=1286265219]
@@ -68,7 +75,6 @@ shape = SubResource("ConcavePolygonShape3D_nh0li")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1501465, 102.540955, 205.10876)
 stream = SubResource("AudioStreamPlaylist_hht2r")
 attenuation_model = 3
-autoplay = true
 panning_strength = 0.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=622091700]
@@ -76,5 +82,9 @@ transform = Transform3D(-0.13372703, 0.5177021, -0.8450453, 0, 0.85270417, 0.522
 shadow_enabled = true
 shadow_bias = 3.12
 
-[node name="Vintek Warlander" parent="." unique_id=1515756501 instance=ExtResource("20_n8xkj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.555214, 15.159706, 382.94394)
+[node name="Path3D" type="Path3D" parent="." unique_id=1660293298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.87341, 0, 496.01376)
+curve = SubResource("Curve3D_n8xkj")
+
+[node name="RC-3" parent="." unique_id=1515756501 instance=ExtResource("20_n8xkj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.598526, 27.446976, 521.34546)

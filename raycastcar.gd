@@ -2,6 +2,8 @@ extends RigidBody3D
 
 @export var shapecast : ShapeCast3D
 
+@export var carname: String = "default"
+
 @export var SPEEDOMETER_LABEL: Label
 @export var wheels: Array[RaycastWheel]
 @export var acceleration := -600.0
@@ -47,11 +49,13 @@ var shake_timer: float = 0.0
 var motor_input := 0
 var hand_break := false
 
+
+
 func _ready() -> void:
 	if shapecast:
 		shapecast.add_exception(get_parent())
 		
-	
+	GlobalSelection.match_player_vehicle(carname)
 
 	
 func _unhandled_input(event: InputEvent) -> void:
@@ -226,7 +230,7 @@ func _do_single_wheel_suspension(ray: RaycastWheel) -> void:
 		
 		contact = ray.wheel.global_position
 		var force_pos_offset := contact - global_position
-		if not Input.is_action_pressed("ui_accept"):
+		if not Input.is_action_pressed("drop"):
 			apply_force(force_vector, force_pos_offset)
 		#DebugDraw3D.draw_line(global_position+force_pos_offset,global_position+force_pos_offset+(force_vector*0.1),Color.RED)
 

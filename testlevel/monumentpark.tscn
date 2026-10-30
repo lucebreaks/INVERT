@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/placeholder/luce - backdraft (WIP).ogg" id="16_6m15o"]
 [ext_resource type="AudioStream" uid="uid://uxdlqs456g0g" path="res://ost/Roominsky - Asylum.ogg" id="17_ix5l3"]
 [ext_resource type="AudioStream" uid="uid://qcsbhcgsqshj" path="res://ost/Roominsky - Abyss.ogg" id="18_5nqhn"]
-[ext_resource type="PackedScene" uid="uid://d0edpcwneahdb" path="res://cars/Stage V.tscn" id="21_i6ih3"]
+[ext_resource type="PackedScene" uid="uid://d0edpcwneahdb" path="res://NPCcars/Stage V_NPC.tscn" id="21_i6ih3"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_i7bwa"]
 shuffle = true

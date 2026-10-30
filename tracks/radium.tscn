@@ -18,7 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://bw1mcaclvsymk" path="res://ost/placeholder/luce - backdraft (WIP).ogg" id="16_q8tsp"]
 [ext_resource type="AudioStream" uid="uid://uxdlqs456g0g" path="res://ost/Roominsky - Asylum.ogg" id="17_8b4jv"]
 [ext_resource type="AudioStream" uid="uid://qcsbhcgsqshj" path="res://ost/Roominsky - Abyss.ogg" id="18_upk7u"]
-[ext_resource type="PackedScene" uid="uid://d0edpcwneahdb" path="res://cars/Stage V.tscn" id="19_fp3e3"]
+[ext_resource type="PackedScene" uid="uid://d0edpcwneahdb" path="res://NPCcars/Stage V_NPC.tscn" id="19_fp3e3"]
 [ext_resource type="ArrayMesh" uid="uid://cfsjqmhmtok77" path="res://testlevel/radium6.obj" id="20_blle4"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_3qmlh"]
@@ -54,7 +54,6 @@ data = PackedVector3Array(20.9475, -1.9957, 21.1209, 20.726, -1.9663999, 21.1157
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1501465, 102.540955, 205.10876)
 stream = SubResource("AudioStreamPlaylist_3qmlh")
 attenuation_model = 3
-autoplay = true
 panning_strength = 0.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=163430903]

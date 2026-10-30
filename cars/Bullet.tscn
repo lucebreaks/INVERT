@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dk5uo3ecyinfb"]
+[gd_scene format=3 uid="uid://didkfxlwm80ob"]
 
 [ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_rbo1q"]
 [ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_tx3g8"]
@@ -65,6 +65,7 @@ mass = 370.0
 physics_material_override = SubResource("PhysicsMaterial_yf5fn")
 gravity_scale = 4.0
 script = ExtResource("1_rbo1q")
+carname = "Bullet"
 SPEEDOMETER_LABEL = NodePath("CanvasLayer/Control/Speedo_counter")
 wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
 acceleration = -10000.0

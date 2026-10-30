@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://dk5uo3ecyinfb"]
+
+[ext_resource type="Script" uid="uid://mh15vlvmne43" path="res://NPCcars/script/raycastcar_NPC.gd" id="1_62f1p"]
+[ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_vspv4"]
+[ext_resource type="AudioStream" uid="uid://bd22hraelmxse" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_j5slq"]
+[ext_resource type="PackedScene" uid="uid://cb0nm80np11um" path="res://rollers/wrob3l rollers/bulletv4.fbx" id="10_adyu4"]
+[ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="11_ijpjm"]
+[ext_resource type="ArrayMesh" uid="uid://cska2n1vevpvi" path="res://rollers/wheels/bulletwhel.obj" id="12_xt5da"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
+friction = 0.35
+rough = true
+bounce = 0.3
+
+[sub_resource type="Curve" id="Curve_vspv4"]
+_data = [Vector2(0, 0.90000004), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(7.2185097, 0.8004379, 7.0064535)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tx3g8"]
+radius = 1.4850379
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3omo0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_746m2"]
+albedo_color = Color(0.7921569, 0.5882353, 0.9764706, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3x2e6"]
+albedo_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xj2bi"]
+metallic = 1.0
+roughness = 0.28
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
+height = 1.2
+radius = 1.733
+
+[node name="Bullet_NPC" type="Node3D" unique_id=1515756501]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=515641917 node_paths=PackedStringArray("wheels", "up_ray", "down_ray")]
+collision_layer = 5
+mass = 370.0
+physics_material_override = SubResource("PhysicsMaterial_yf5fn")
+gravity_scale = 4.0
+script = ExtResource("1_62f1p")
+wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
+acceleration = -10000.0
+max_speed = 1600.0
+accel_curve = SubResource("Curve_vspv4")
+wheels_parent_path = NodePath(".")
+up_ray = NodePath("UpCast")
+down_ray = NodePath("DownCast")
+
+[node name="RayCast3D" type="RayCast3D" parent="RigidBody3D" unique_id=630708010]
+target_position = Vector3(0, 3, 0)
+
+[node name="Node3D" type="Node3D" parent="RigidBody3D" unique_id=2139802655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="EngineSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=609267786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.4712148)
+stream = ExtResource("2_vspv4")
+volume_db = -16.706
+autoplay = true
+
+[node name="JetSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=1166143449]
+stream = ExtResource("3_j5slq")
+max_db = 0.5
+autoplay = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1701185897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02019453, -0.0070228577, -0.17560911)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="wheelcol1" type="CollisionShape3D" parent="RigidBody3D" unique_id=1490425738]
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -3.4034066, -0.030391693, 2.9543877)
+shape = SubResource("SphereShape3D_tx3g8")
+
+[node name="wheelcol2" type="CollisionShape3D" parent="RigidBody3D" unique_id=1243201329]
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.403, -0.030391693, 2.954059)
+shape = SubResource("SphereShape3D_tx3g8")
+
+[node name="wheelcol3" type="CollisionShape3D" parent="RigidBody3D" unique_id=1794629579]
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, -3.4034066, -0.030391693, -2.7813306)
+shape = SubResource("SphereShape3D_tx3g8")
+
+[node name="wheelcol4" type="CollisionShape3D" parent="RigidBody3D" unique_id=1002024273]
+transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.403, -0.030391693, -2.7816596)
+shape = SubResource("SphereShape3D_tx3g8")
+
+[node name="bulletv4" parent="RigidBody3D" unique_id=1295457182 instance=ExtResource("10_adyu4")]
+transform = Transform3D(1.369, 0, 0, 0, 1.256, 0, 0, 0, 1.114, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="RigidBody3D" unique_id=2037134250]
+transform = Transform3D(-1, 0, -7.115729e-08, 0, 1, 0, 7.115729e-08, 0, -1, -0.68841755, 0, 4.4634824)
+light_energy = 12.396
+light_volumetric_fog_energy = 5.375
+light_size = 0.274
+spot_range = 41.510117
+spot_angle = 4.9283543
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="RigidBody3D" unique_id=646900378]
+transform = Transform3D(-1, 0, -7.115729e-08, 0, 1, 0, 7.115729e-08, 0, -1, 0.68866515, 0, 4.463195)
+light_energy = 12.396
+light_volumetric_fog_energy = 5.375
+light_size = 0.274
+spot_range = 41.51
+spot_angle = 4.93
+
+[node name="wheelFL" type="RayCast3D" parent="RigidBody3D" unique_id=1693070349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.023, 0, 2.9619064)
+enabled = false
+target_position = Vector3(0, -1.835, 0)
+collision_mask = 5
+script = ExtResource("11_ijpjm")
+spring_strength = 50000.0
+spring_damping = 3000
+wheel_radius = 1.5550000000000002
+is_motor = true
+
+[node name="Bullet" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=1215868345]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 1.202, 0, 0)
+mesh = ExtResource("12_xt5da")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3omo0")
+surface_material_override/2 = SubResource("StandardMaterial3D_746m2")
+surface_material_override/4 = SubResource("StandardMaterial3D_3x2e6")
+surface_material_override/5 = SubResource("StandardMaterial3D_xj2bi")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFL" unique_id=1442548222]
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_g4v7s")
+
+[node name="wheelRL" type="RayCast3D" parent="RigidBody3D" unique_id=1425667283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.023, 0, -2.782636)
+enabled = false
+target_position = Vector3(0, -1.835, 0)
+collision_mask = 5
+script = ExtResource("11_ijpjm")
+spring_strength = 50000.0
+spring_damping = 3000
+wheel_radius = 1.5550000000000002
+is_motor = true
+
+[node name="Bullet" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=424147266]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 1.2019999, 0, 0)
+mesh = ExtResource("12_xt5da")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3omo0")
+surface_material_override/2 = SubResource("StandardMaterial3D_746m2")
+surface_material_override/4 = SubResource("StandardMaterial3D_3x2e6")
+surface_material_override/5 = SubResource("StandardMaterial3D_xj2bi")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRL" unique_id=1939323894]
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_g4v7s")
+
+[node name="wheelFR" type="RayCast3D" parent="RigidBody3D" unique_id=1400942630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0232399, 0, 2.9619064)
+enabled = false
+target_position = Vector3(0, -1.835, 0)
+collision_mask = 5
+script = ExtResource("11_ijpjm")
+spring_strength = 50000.0
+spring_damping = 3000
+wheel_radius = 1.5550000000000002
+is_motor = true
+
+[node name="Bullet" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=14021931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.202, 0, 0)
+mesh = ExtResource("12_xt5da")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3omo0")
+surface_material_override/2 = SubResource("StandardMaterial3D_746m2")
+surface_material_override/4 = SubResource("StandardMaterial3D_3x2e6")
+surface_material_override/5 = SubResource("StandardMaterial3D_xj2bi")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFR" unique_id=113828537]
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_g4v7s")
+target_position = Vector3(0, 1, 0)
+
+[node name="wheelRR" type="RayCast3D" parent="RigidBody3D" unique_id=516100797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0232399, 0, -2.782636)
+enabled = false
+target_position = Vector3(0, -1.835, 0)
+collision_mask = 5
+script = ExtResource("11_ijpjm")
+spring_strength = 50000.0
+spring_damping = 3000
+wheel_radius = 1.5550000000000002
+is_motor = true
+
+[node name="Bullet" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=509060404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2019999, 0, 0)
+mesh = ExtResource("12_xt5da")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3omo0")
+surface_material_override/2 = SubResource("StandardMaterial3D_746m2")
+surface_material_override/4 = SubResource("StandardMaterial3D_3x2e6")
+surface_material_override/5 = SubResource("StandardMaterial3D_xj2bi")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRR" unique_id=571723821]
+process_physics_priority = -1
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_g4v7s")
+target_position = Vector3(0, 1, 0)
+
+[node name="UpCast" type="RayCast3D" parent="RigidBody3D" unique_id=1429197442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1553674, 0)
+target_position = Vector3(0, 100, 0)
+hit_from_inside = true
+
+[node name="DownCast" type="RayCast3D" parent="RigidBody3D" unique_id=1291836459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.155, 0)
+target_position = Vector3(0, -100, 0)
+hit_from_inside = true

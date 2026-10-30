@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d0edpcwneahdb"]
+[gd_scene format=3 uid="uid://ckl3s6a3vtmxg"]
 
 [ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_7sidd"]
 [ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="2_3n7nv"]
@@ -72,7 +72,7 @@ script = ExtResource("1_7sidd")
 SPEEDOMETER_LABEL = NodePath("CanvasLayer/Control/Speedo_counter")
 wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
 acceleration = -10000.0
-max_speed = 1000.0
+max_speed = 1600.0
 accel_curve = SubResource("Curve_8uh7m")
 max_speed_kmh = 800.0
 shake_threshold_kmh = 300.0

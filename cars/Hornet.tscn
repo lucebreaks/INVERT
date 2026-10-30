@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://bn32dak0wxonl"]
+[gd_scene format=3 uid="uid://cm03ampwpomm0"]
 
-[ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_xu3x7"]
-[ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_pnw3e"]
-[ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="3_540s2"]
-[ext_resource type="AudioStream" uid="uid://bd22hraelmxse" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_iukv1"]
-[ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="4_e83j1"]
-[ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="5_sns85"]
-[ext_resource type="Environment" uid="uid://chggw4t7ipglj" path="res://camera/testenvironment.tres" id="5_um7o0"]
-[ext_resource type="ArrayMesh" uid="uid://di4eu5wtndmlr" path="res://rollers/wrob3l rollers/Hornet.obj" id="6_bbnpy"]
-[ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="10_dsalt"]
-[ext_resource type="ArrayMesh" uid="uid://dwfmhquppsw2" path="res://rollers/wheels/dragged.obj" id="10_um7o0"]
-[ext_resource type="Material" uid="uid://cy8wbkpa8j6fk" path="res://dragged rim.tres" id="11_3x2e6"]
+[ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_um7o0"]
+[ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_3x2e6"]
+[ext_resource type="AudioStream" uid="uid://bd22hraelmxse" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_semyf"]
+[ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="4_87rm7"]
+[ext_resource type="Environment" uid="uid://chggw4t7ipglj" path="res://camera/testenvironment.tres" id="5_3qui8"]
+[ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="6_jryt8"]
+[ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="7_on4ve"]
+[ext_resource type="ArrayMesh" uid="uid://di4eu5wtndmlr" path="res://rollers/wrob3l rollers/Hornet.obj" id="8_yh1gh"]
+[ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="9_6pvn5"]
+[ext_resource type="ArrayMesh" uid="uid://dwfmhquppsw2" path="res://rollers/wheels/dragged.obj" id="10_56lc5"]
+[ext_resource type="Material" uid="uid://cy8wbkpa8j6fk" path="res://dragged rim.tres" id="11_n81kf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
 friction = 0.35
@@ -23,15 +23,15 @@ point_count = 4
 metadata/_snap_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_x7clb"]
-font = ExtResource("5_sns85")
+font = ExtResource("7_on4ve")
 font_size = 130
 
 [sub_resource type="LabelSettings" id="LabelSettings_6q0nu"]
-font = ExtResource("5_sns85")
+font = ExtResource("7_on4ve")
 font_size = 53
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ck66"]
-font = ExtResource("5_sns85")
+font = ExtResource("7_on4ve")
 font_size = 130
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
@@ -63,7 +63,7 @@ collision_layer = 5
 mass = 390.0
 physics_material_override = SubResource("PhysicsMaterial_yf5fn")
 gravity_scale = 4.0
-script = ExtResource("1_xu3x7")
+script = ExtResource("1_um7o0")
 SPEEDOMETER_LABEL = NodePath("CanvasLayer/Control/Speedo_counter")
 wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
 acceleration = -10000.0
@@ -81,12 +81,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=609267786]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.4712148)
-stream = ExtResource("2_pnw3e")
+stream = ExtResource("2_3x2e6")
 volume_db = -16.706
 autoplay = true
 
 [node name="JetSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=79724678]
-stream = ExtResource("3_iukv1")
+stream = ExtResource("3_semyf")
 max_db = 0.5
 autoplay = true
 
@@ -96,7 +96,7 @@ top_level = true
 collision_mask = 5
 spring_length = -10.0
 margin = 1.92
-script = ExtResource("3_540s2")
+script = ExtResource("4_87rm7")
 target_node = NodePath("..")
 follow_speed = 20.0
 fixed_height_offset = 3.3
@@ -106,11 +106,11 @@ camera_node = NodePath("Camera")
 [node name="Camera" type="Camera3D" parent="RigidBody3D/SpringArm3D" unique_id=444824457 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
 cull_mask = 524287
-environment = ExtResource("5_um7o0")
+environment = ExtResource("5_3qui8")
 doppler_tracking = 2
 fov = 90.0
 near = 0.036
-script = ExtResource("4_e83j1")
+script = ExtResource("6_jryt8")
 target = NodePath("../..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="RigidBody3D" unique_id=325419159]
@@ -172,7 +172,7 @@ transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.789, -0.030391693,
 shape = SubResource("SphereShape3D_dl7iy")
 
 [node name="Hornet" type="MeshInstance3D" parent="RigidBody3D" unique_id=318331273]
-mesh = ExtResource("6_bbnpy")
+mesh = ExtResource("8_yh1gh")
 skeleton = NodePath("../..")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="RigidBody3D/Hornet" unique_id=2037134250]
@@ -196,7 +196,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.981668, 0, 3.2305844)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("10_dsalt")
+script = ExtResource("9_6pvn5")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.5550000000000002
@@ -204,11 +204,11 @@ is_motor = true
 
 [node name="Dragged" type="MeshInstance3D" parent="RigidBody3D/wheelFL" unique_id=1845012224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.592, 0, 0)
-mesh = ExtResource("10_um7o0")
+mesh = ExtResource("10_56lc5")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11_3x2e6")
+surface_material_override/0 = ExtResource("11_n81kf")
 surface_material_override/2 = SubResource("StandardMaterial3D_d0u6y")
-surface_material_override/3 = ExtResource("11_3x2e6")
+surface_material_override/3 = ExtResource("11_n81kf")
 surface_material_override/4 = SubResource("StandardMaterial3D_fnjhu")
 surface_material_override/5 = SubResource("StandardMaterial3D_ydls1")
 
@@ -222,7 +222,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.981668, 0, -3.55716)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("10_dsalt")
+script = ExtResource("9_6pvn5")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.5550000000000002
@@ -230,11 +230,11 @@ is_motor = true
 
 [node name="Dragged" type="MeshInstance3D" parent="RigidBody3D/wheelRL" unique_id=2037685738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.592, 0, 0)
-mesh = ExtResource("10_um7o0")
+mesh = ExtResource("10_56lc5")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11_3x2e6")
+surface_material_override/0 = ExtResource("11_n81kf")
 surface_material_override/2 = SubResource("StandardMaterial3D_d0u6y")
-surface_material_override/3 = ExtResource("11_3x2e6")
+surface_material_override/3 = ExtResource("11_n81kf")
 surface_material_override/4 = SubResource("StandardMaterial3D_fnjhu")
 surface_material_override/5 = SubResource("StandardMaterial3D_ydls1")
 
@@ -248,7 +248,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.982, 0, 3.2305844)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("10_dsalt")
+script = ExtResource("9_6pvn5")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.5550000000000002
@@ -256,11 +256,11 @@ is_motor = true
 
 [node name="Dragged" type="MeshInstance3D" parent="RigidBody3D/wheelFR" unique_id=498017269]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.592, 0, 0)
-mesh = ExtResource("10_um7o0")
+mesh = ExtResource("10_56lc5")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11_3x2e6")
+surface_material_override/0 = ExtResource("11_n81kf")
 surface_material_override/2 = SubResource("StandardMaterial3D_d0u6y")
-surface_material_override/3 = ExtResource("11_3x2e6")
+surface_material_override/3 = ExtResource("11_n81kf")
 surface_material_override/4 = SubResource("StandardMaterial3D_fnjhu")
 surface_material_override/5 = SubResource("StandardMaterial3D_ydls1")
 
@@ -275,7 +275,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.982, 0, -3.55716)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("10_dsalt")
+script = ExtResource("9_6pvn5")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.5550000000000002
@@ -283,11 +283,11 @@ is_motor = true
 
 [node name="Dragged" type="MeshInstance3D" parent="RigidBody3D/wheelRR" unique_id=1937460340]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.592, 0, 0)
-mesh = ExtResource("10_um7o0")
+mesh = ExtResource("10_56lc5")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("11_3x2e6")
+surface_material_override/0 = ExtResource("11_n81kf")
 surface_material_override/2 = SubResource("StandardMaterial3D_d0u6y")
-surface_material_override/3 = ExtResource("11_3x2e6")
+surface_material_override/3 = ExtResource("11_n81kf")
 surface_material_override/4 = SubResource("StandardMaterial3D_fnjhu")
 surface_material_override/5 = SubResource("StandardMaterial3D_ydls1")
 

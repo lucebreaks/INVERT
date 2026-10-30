@@ -19,11 +19,11 @@
 [ext_resource type="AudioStream" uid="uid://uxdlqs456g0g" path="res://ost/Roominsky - Asylum.ogg" id="17_73jgc"]
 [ext_resource type="AudioStream" uid="uid://qcsbhcgsqshj" path="res://ost/Roominsky - Abyss.ogg" id="18_k1anx"]
 [ext_resource type="ArrayMesh" uid="uid://buh4iog5ye7bw" path="res://testlevel/pipetrak.obj" id="19_vdn1x"]
-[ext_resource type="PackedScene" uid="uid://dwofwegoql3ag" path="res://cars/Gotek.tscn" id="20_c6i3w"]
-[ext_resource type="PackedScene" uid="uid://bn32dak0wxonl" path="res://cars/Hornet.tscn" id="20_f8ue4"]
-[ext_resource type="PackedScene" uid="uid://ct62217jg5cbc" path="res://cars/Gydra.tscn" id="22_cyu5n"]
-[ext_resource type="PackedScene" uid="uid://d41f28u86vd0" path="res://cars/Misan.tscn" id="23_1ybsp"]
-[ext_resource type="PackedScene" uid="uid://dmfliixwqwjv7" path="res://cars/OG.tscn" id="24_7didl"]
+[ext_resource type="PackedScene" uid="uid://dwofwegoql3ag" path="res://NPCcars/Gotek_NPC.tscn" id="20_c6i3w"]
+[ext_resource type="PackedScene" uid="uid://bn32dak0wxonl" path="res://NPCcars/Hornet_NPC.tscn" id="20_f8ue4"]
+[ext_resource type="PackedScene" uid="uid://ct62217jg5cbc" path="res://NPCcars/Gydra_NPC.tscn" id="22_cyu5n"]
+[ext_resource type="PackedScene" uid="uid://d41f28u86vd0" path="res://NPCcars/Misan_NPC.tscn" id="23_1ybsp"]
+[ext_resource type="PackedScene" uid="uid://dmfliixwqwjv7" path="res://NPCcars/OG_NPC.tscn" id="24_7didl"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_or2q8"]
 shuffle = true

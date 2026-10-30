@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://mxopgti16f6q"]
+[gd_scene format=3 uid="uid://jtev6kwolxal"]
 
-[ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_dl7iy"]
-[ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_62gsv"]
-[ext_resource type="AudioStream" uid="uid://bd22hraelmxse" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_5r6pp"]
-[ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="3_iukv1"]
-[ext_resource type="Environment" uid="uid://bovq8xj1kgubk" path="res://testlevel/testenvi.tres" id="4_e2oay"]
-[ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="4_um7o0"]
-[ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="5_3x2e6"]
-[ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="7_87rm7"]
-[ext_resource type="PackedScene" uid="uid://c1b305bn4mubn" path="res://rollers/voxtekflip.fbx" id="8_5r6pp"]
-[ext_resource type="PackedScene" uid="uid://dslrepe4twscp" path="res://rollers/voxtekwhel.fbx" id="10_5r6pp"]
+[ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_5r6pp"]
+[ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_j2um1"]
+[ext_resource type="AudioStream" uid="uid://bd22hraelmxse" path="res://sfx/INVERT_Engine103_SuperchagerWhine_MONO.ogg" id="3_xbvvw"]
+[ext_resource type="Script" uid="uid://ctnnd6rkwxkla" path="res://rollers/spring_arm_3d.gd" id="4_xu3x7"]
+[ext_resource type="Environment" uid="uid://bovq8xj1kgubk" path="res://testlevel/testenvi.tres" id="5_pnw3e"]
+[ext_resource type="Script" uid="uid://bc2b683ydfsfl" path="res://rollers/camera.gd" id="6_540s2"]
+[ext_resource type="FontFile" uid="uid://3nfpvfhibqh2" path="res://font/dot_digital-7.ttf" id="7_e83j1"]
+[ext_resource type="PackedScene" uid="uid://c1b305bn4mubn" path="res://rollers/voxtekflip.fbx" id="8_sns85"]
+[ext_resource type="Script" uid="uid://cwwt7kt2gh0fg" path="res://RaycastWheel.gd" id="9_vl2h0"]
+[ext_resource type="PackedScene" uid="uid://dslrepe4twscp" path="res://rollers/voxtekwhel.fbx" id="10_u7t1i"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yf5fn"]
 friction = 0.35
@@ -22,15 +22,15 @@ point_count = 4
 metadata/_snap_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_x7clb"]
-font = ExtResource("5_3x2e6")
+font = ExtResource("7_e83j1")
 font_size = 130
 
 [sub_resource type="LabelSettings" id="LabelSettings_6q0nu"]
-font = ExtResource("5_3x2e6")
+font = ExtResource("7_e83j1")
 font_size = 53
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ck66"]
-font = ExtResource("5_3x2e6")
+font = ExtResource("7_e83j1")
 font_size = 130
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
@@ -50,7 +50,7 @@ collision_layer = 5
 mass = 400.0
 physics_material_override = SubResource("PhysicsMaterial_yf5fn")
 gravity_scale = 4.0
-script = ExtResource("1_dl7iy")
+script = ExtResource("1_5r6pp")
 SPEEDOMETER_LABEL = NodePath("CanvasLayer/Control/Speedo_counter")
 wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
 acceleration = -10000.0
@@ -68,12 +68,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="EngineSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=609267786]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.4712148)
-stream = ExtResource("2_62gsv")
+stream = ExtResource("2_j2um1")
 volume_db = -16.706
 autoplay = true
 
 [node name="JetSound" type="AudioStreamPlayer3D" parent="RigidBody3D" unique_id=1145504494]
-stream = ExtResource("3_5r6pp")
+stream = ExtResource("3_xbvvw")
 max_db = 0.5
 autoplay = true
 
@@ -83,7 +83,7 @@ top_level = true
 collision_mask = 5
 spring_length = -10.0
 margin = 1.92
-script = ExtResource("3_iukv1")
+script = ExtResource("4_xu3x7")
 target_node = NodePath("..")
 follow_speed = 20.0
 fixed_height_offset = 3.3
@@ -93,11 +93,11 @@ camera_node = NodePath("Camera")
 [node name="Camera" type="Camera3D" parent="RigidBody3D/SpringArm3D" unique_id=444824457 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1, -2.4284468e-08, 1.4902963e-07, -5.3290646e-15, 0.9869822, 0.16082932, -1.5099525e-07, 0.16082932, -0.9869822, 0, 0, 0)
 cull_mask = 524287
-environment = ExtResource("4_e2oay")
+environment = ExtResource("5_pnw3e")
 doppler_tracking = 2
 fov = 90.0
 near = 0.036
-script = ExtResource("4_um7o0")
+script = ExtResource("6_540s2")
 target = NodePath("../..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="RigidBody3D" unique_id=325419159]
@@ -158,7 +158,7 @@ shape = SubResource("SphereShape3D_e2oay")
 transform = Transform3D(0.74, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 3.7890549, -0.00825119, -3.295022)
 shape = SubResource("SphereShape3D_e2oay")
 
-[node name="voxtekflip" parent="RigidBody3D" unique_id=1192626554 instance=ExtResource("8_5r6pp")]
+[node name="voxtekflip" parent="RigidBody3D" unique_id=1192626554 instance=ExtResource("8_sns85")]
 transform = Transform3D(1, 0, 0, 0, 0.8872648, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="RigidBody3D" unique_id=2037134250]
@@ -182,13 +182,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.777, 0, 2.8906698)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("7_87rm7")
+script = ExtResource("9_vl2h0")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.5550000000000002
 is_motor = true
 
-[node name="voxtekwhel" parent="RigidBody3D/wheelFL" unique_id=1035585135 instance=ExtResource("10_5r6pp")]
+[node name="voxtekwhel" parent="RigidBody3D/wheelFL" unique_id=1035585135 instance=ExtResource("10_u7t1i")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.592, 0, 0)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFL" unique_id=1442548222]
@@ -201,13 +201,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.777, 0, -3.298243)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("7_87rm7")
+script = ExtResource("9_vl2h0")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.5550000000000002
 is_motor = true
 
-[node name="voxtekwhel" parent="RigidBody3D/wheelRL" unique_id=1876475566 instance=ExtResource("10_5r6pp")]
+[node name="voxtekwhel" parent="RigidBody3D/wheelRL" unique_id=1876475566 instance=ExtResource("10_u7t1i")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.592, 0, 0)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRL" unique_id=1939323894]
@@ -220,13 +220,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7768247, 0, 2.8906698)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("7_87rm7")
+script = ExtResource("9_vl2h0")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.5550000000000002
 is_motor = true
 
-[node name="voxtekwhel" parent="RigidBody3D/wheelFR" unique_id=1151801758 instance=ExtResource("10_5r6pp")]
+[node name="voxtekwhel" parent="RigidBody3D/wheelFR" unique_id=1151801758 instance=ExtResource("10_u7t1i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592, 0, 0)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelFR" unique_id=113828537]
@@ -240,13 +240,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7768247, 0, -3.298243)
 enabled = false
 target_position = Vector3(0, -1.835, 0)
 collision_mask = 5
-script = ExtResource("7_87rm7")
+script = ExtResource("9_vl2h0")
 spring_strength = 50000.0
 spring_damping = 3000
 wheel_radius = 1.5550000000000002
 is_motor = true
 
-[node name="voxtekwhel" parent="RigidBody3D/wheelRR" unique_id=456097468 instance=ExtResource("10_5r6pp")]
+[node name="voxtekwhel" parent="RigidBody3D/wheelRR" unique_id=456097468 instance=ExtResource("10_u7t1i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592, 0, 0)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="RigidBody3D/wheelRR" unique_id=571723821]

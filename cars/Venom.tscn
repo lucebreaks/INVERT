@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dujanfdcolmdp"]
+[gd_scene format=3 uid="uid://kuuwfdeby14h"]
 
 [ext_resource type="Script" uid="uid://cx1cgo2etg8iv" path="res://raycastcar.gd" id="1_85hrn"]
 [ext_resource type="AudioStream" uid="uid://cu7ufv5g3gj87" path="res://rollers/sfx/GFX_Veh_Engine_1_PLACEHOLDER.ogg" id="2_1et7p"]
@@ -65,7 +65,7 @@ gravity_scale = 4.0
 script = ExtResource("1_85hrn")
 wheels = [NodePath("wheelFL"), NodePath("wheelRL"), NodePath("wheelFR"), NodePath("wheelRR")]
 acceleration = -10000.0
-max_speed = 1000.0
+max_speed = 1600.0
 accel_curve = SubResource("Curve_8uh7m")
 max_speed_kmh = 800.0
 shake_threshold_kmh = 300.0

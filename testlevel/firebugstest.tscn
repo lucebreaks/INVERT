@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://co2am2eh18hi5" path="res://testlevel/firebugstesnormalfix.obj" id="1_ute8h"]
 [ext_resource type="AudioStream" uid="uid://betdjb7oi57mp" path="res://ost/gs franc - Sharpest steel XL.ogg" id="1_v7c5g"]
-[ext_resource type="PackedScene" uid="uid://d41f28u86vd0" path="res://cars/Misan.tscn" id="2_1upgc"]
+[ext_resource type="PackedScene" uid="uid://d41f28u86vd0" path="res://NPCcars/Misan_NPC.tscn" id="2_1upgc"]
 [ext_resource type="AudioStream" uid="uid://c0hh3yv5xbyte" path="res://ost/placeholder/chinesemidiboard - blade fury.wav" id="2_u7ttn"]
 [ext_resource type="AudioStream" uid="uid://cr3ayyiipsm4y" path="res://ost/gs franc - Cure for the itch.ogg" id="3_5683o"]
 [ext_resource type="AudioStream" uid="uid://bf6wxgsm7jojd" path="res://ost/placeholder/chinesemidiboard - no mercy.wav" id="4_a10ys"]
